@@ -47,13 +47,16 @@
 </head>
 <body class="text-gray-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
 
+    <!-- Main Container -->
     <div class="w-full max-w-5xl mx-auto relative">
         
         <header class="text-center my-8 flex flex-col items-center">
+            <!-- Increased logo size for better balance -->
             <img src="musicians.png" alt="Swedenbot Logo" class="w-40 h-40 sm:w-56 sm:h-56 mb-4 object-contain">
             <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
         </header>
 
+        <!-- Main Menu View -->
         <div id="main-menu-view" class="view active">
             <div class="flex flex-col items-center space-y-6 mt-12">
                 <button id="ask-question-btn" class="main-menu-btn text-3xl sm:text-4xl py-6 px-12 rounded-lg shadow-lg">Ask a Question</button>
@@ -61,16 +64,19 @@
             </div>
         </div>
         
+        <!-- Library Menu View -->
         <div id="library-menu-view" class="view">
              <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
             <div id="library-category-buttons" class="flex flex-col items-center space-y-4 mt-8"></div>
         </div>
 
+        <!-- Library Books View -->
         <div id="library-books-view" class="view">
             <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Library</button>
             <div id="category-container" class="space-y-12"></div>
         </div>
 
+        <!-- Conversation View -->
         <div id="conversation-view" class="view">
             <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
             <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-6">
@@ -208,12 +214,12 @@
                 conversationHistory.push({role: 'user', parts: [{text}]});
 
                 // --- THIS IS THE LIVE CONNECTION TO YOUR BACKEND ---
-                const backendUrl = 'https://swedenbot-brain-988389391595.us-east4.run.app/aichat';
+                // Replace this placeholder with the URL from your Vercel deployment
+                const backendUrl = 'https://your-vercel-backend-url.vercel.app/aichat';
                 
                 const payload = {
                     text: text,
                     history: conversationHistory,
-                    // In a real app, you would pass the current book context here
                 };
 
                 try {
@@ -234,7 +240,6 @@
                         renderChatMessage(result.responseText, false);
                         conversationHistory.push({role: 'model', parts: [{text: result.responseText}]});
                         
-                        // Play the audio if it exists
                         if (result.audioContent) {
                             const audioUrl = `data:audio/mp3;base64,${result.audioContent}`;
                             audioPlayer.src = audioUrl;
