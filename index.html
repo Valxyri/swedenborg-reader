@@ -214,7 +214,8 @@
                 conversationHistory.push({role: 'user', parts: [{text}]});
 
                 // --- THIS IS THE LIVE CONNECTION TO YOUR VERCEL BACKEND ---
-                const backendUrl = '/api/index'; // Vercel handles routing this to api/index.py
+                // The URL now points to the correct Vercel endpoint.
+                const backendUrl = 'https://swedenborg-reader.vercel.app/api/index'; 
                 
                 const payload = {
                     text: text,
