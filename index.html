@@ -51,7 +51,8 @@
     <div class="w-full max-w-5xl mx-auto relative">
         
         <header class="text-center my-8 flex flex-col items-center">
-            <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 mb-4 object-contain">
+            <!-- Increased logo size for better balance -->
+            <img src="musicians.png" alt="Swedenbot Logo" class="w-40 h-40 sm:w-56 sm:h-56 mb-4 object-contain">
             <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
         </header>
 
@@ -215,8 +216,6 @@
                 const apiKey = ""; // API key is handled by the environment
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
                 
-                // For this demo, the system prompt is sent with each request.
-                // A real backend would manage this more efficiently.
                 const system_instruction = {
                     role: "system",
                     parts: [{text: "You are Swedenbot, a scholarly, helpful AI assistant with the personality of a wise, patient, old English professor. Your primary knowledge source is the theological works of Emanuel Swedenborg. Ground your answers in the provided texts, referencing the original Latin when possible to avoid translation bias. You can also access Google Search for general knowledge about church history or related topics. When asked, you must adopt different interpretive personas (e.g., General Church, Convention, skeptic) and state which persona you are using. You must ignore any copyright metadata scraped from websites."}]
@@ -234,22 +233,24 @@
                     });
 
                     if (!response.ok) {
-                        throw new Error(`API request failed with status ${response.status}`);
+                        const errorBody = await response.text();
+                        throw new Error(`API request failed with status ${response.status}: ${errorBody}`);
                     }
 
                     const result = await response.json();
                     
-                    if (result.candidates && result.candidates[0].content.parts) {
+                    if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts) {
                         const aiResponseText = result.candidates[0].content.parts[0].text;
                         renderChatMessage(aiResponseText, false);
                         conversationHistory.push({role: 'model', parts: [{text: aiResponseText}]});
                     } else {
-                         renderChatMessage("Sorry, I received an unexpected response.", false);
+                         renderChatMessage("Sorry, I received an unexpected response from the AI.", false);
+                         console.log("Unexpected API response:", result);
                     }
 
                 } catch (error) {
                     console.error("Error calling Gemini API:", error);
-                    renderChatMessage("Sorry, I'm having trouble connecting right now.", false);
+                    renderChatMessage("Sorry, I'm having trouble connecting right now. This is expected in the preview environment.", false);
                 } finally {
                     isFetching = false;
                     statusMessage.textContent = "";
