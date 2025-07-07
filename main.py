@@ -1,26 +1,15 @@
-# This Python script is designed to be deployed as a serverless function
-# (e.g., on Google Cloud Functions, AWS Lambda, or Vercel).
-# It uses the Flask web framework to create an API endpoint.
-
-# --- Required Installations ---
-# You'll need to install these libraries in your function's environment:
-# pip install Flask google-cloud-aiplatform google-cloud-texttospeech google-generativeai
-
 import os
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from google.cloud import texttospeech
 import google.generative_ai as genai
 
 # --- Flask App Initialization ---
+# The 'app' object is what the production server (Gunicorn) looks for.
 app = Flask(__name__)
-
-# --- Configuration ---
-# In a real deployment on Google Cloud, credentials are automatically handled.
-# For local testing, you might need to set GOOGLE_APPLICATION_CREDENTIALS.
-# genai.configure(api_key="YOUR_GEMINI_API_KEY") # Configure with your API key if needed
+CORS(app)
 
 # --- AI Personality Instructions (System Prompt) ---
-# This is the implementation of the "Personality Instructions" document.
 SYSTEM_PROMPT = """
 You are "Swedenbot," a scholarly and helpful conversational AI. Your primary purpose is to assist users in exploring the theological works of Emanuel Swedenborg. Your personality is that of a wise, patient, and knowledgeable theology professor with a classic English accent.
 
@@ -38,68 +27,81 @@ You will be provided with a voice selection from the user. You must generate you
 """
 
 # --- Initialize AI Clients ---
-tts_client = texttospeech.TextToSpeechClient()
-model = genai.GenerativeModel(
-    'gemini-1.5-flash-latest', 
-    system_instruction=SYSTEM_PROMPT,
-    tools=['google_search']
-)
+# These are initialized once when the container starts.
+try:
+    tts_client = texttospeech.TextToSpeechClient()
+    model = genai.GenerativeModel(
+        'gemini-1.5-flash-latest', 
+        system_instruction=SYSTEM_PROMPT,
+        tools=['google_search']
+    )
+except Exception as e:
+    print(f"CRITICAL ERROR during client initialization: {e}")
+    tts_client = None
+    model = None
 
 
-# --- API Endpoint ---
-@app.route('/aichat', methods=['POST'])
+# --- Main API Endpoint ---
+@app.route('/aichat', methods=['POST', 'OPTIONS'])
 def handle_chat():
     """
     This function handles the main conversational logic.
     """
-    # Get data from the front-end request
-    data = request.get_json()
-    if not data or 'text' not in data:
-        return jsonify({'error': 'Invalid request'}), 400
-
-    user_text = data['text']
-    history = data.get('history', [])
-    selected_voice = data.get('voice', 'en-GB-Standard-B') # Default voice
-
-    try:
-        # --- 1. Get Text Response from Gemini ---
-        chat = model.start_chat(history=history)
-        response = chat.send_message(user_text)
-        ai_response_text = response.text
-
-        # --- 2. Convert Text Response to Speech ---
-        synthesis_input = texttospeech.SynthesisInput(text=ai_response_text)
-        
-        voice = texttospeech.VoiceSelectionParams(
-            language_code='-'.join(selected_voice.split('-')[:2]), # e.g., "en-GB"
-            name=selected_voice
-        )
-        
-        audio_config = texttospeech.AudioConfig(
-            audio_encoding=texttospeech.AudioEncoding.MP3
-        )
-        
-        tts_response = tts_client.synthesize_speech(
-            input=synthesis_input, voice=voice, audio_config=audio_config
-        )
-
-        # --- 3. Prepare and Send Response to Front-end ---
-        import base64
-        audio_base64 = base64.b64encode(tts_response.audio_content).decode('utf-8')
-
-        final_response = {
-            "responseText": ai_response_text,
-            "audioContent": audio_base64,
-            "action": "respond"
+    # Handle CORS preflight "OPTIONS" request
+    if request.method == 'OPTIONS':
+        headers = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Max-Age': '3600'
         }
+        return ('', 204, headers)
+        
+    # Handle actual "POST" request
+    if request.method == 'POST':
+        if not model or not tts_client:
+            return jsonify({'error': 'AI services not initialized correctly.'}), 500
 
-        return jsonify(final_response)
+        data = request.get_json()
+        if not data or 'text' not in data:
+            return jsonify({'error': 'Invalid request'}), 400
 
-    except Exception as e:
-        print(f"An error occurred: {e}")
-        return jsonify({'error': 'An internal error occurred'}), 500
+        user_text = data['text']
+        history = data.get('history', [])
+        selected_voice = data.get('voice', 'en-GB-Standard-B')
 
-# This part is for local testing only.
-# In a serverless environment, the cloud provider runs the app.
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+        try:
+            chat = model.start_chat(history=history)
+            response = chat.send_message(user_text)
+            ai_response_text = response.text
+
+            synthesis_input = texttospeech.SynthesisInput(text=ai_response_text)
+            voice = texttospeech.VoiceSelectionParams(
+                language_code='-'.join(selected_voice.split('-')[:2]),
+                name=selected_voice
+            )
+            audio_config = texttospeech.AudioConfig(
+                audio_encoding=texttospeech.AudioEncoding.MP3
+            )
+            tts_response = tts_client.synthesize_speech(
+                input=synthesis_input, voice=voice, audio_config=audio_config
+            )
+
+            import base64
+            audio_base64 = base64.b64encode(tts_response.audio_content).decode('utf-8')
+
+            final_response = {
+                "responseText": ai_response_text,
+                "audioContent": audio_base64,
+                "action": "respond"
+            }
+
+            return jsonify(final_response)
+
+        except Exception as e:
+            print(f"An error occurred during AI processing: {e}")
+            return jsonify({'error': 'An internal error occurred during AI processing'}), 500
+
+# The if __name__ == '__main__': block is removed because it's not used
+# by production servers like Gunicorn, which is what Google Cloud Run uses.
+# The server is started by the cloud environment itself, which imports the 'app' object.
