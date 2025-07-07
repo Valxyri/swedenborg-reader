@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swedenbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #f4f1eb; font-family: 'Lora', serif; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+        .header-font { font-family: 'IM Fell English', serif; }
+        .book-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .book-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        #reader-view, #settings-modal { display: none; }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 50; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
+
+    <!-- Main Container -->
+    <div class="w-full max-w-5xl mx-auto relative">
+        
+        <!-- Settings Button -->
+        <div class="absolute top-4 right-4 z-10">
+            <button id="settings-btn" class="p-2 rounded-full hover:bg-gray-200 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            </button>
+        </div>
+
+        <!-- Header with Custom Graphic -->
+        <header class="text-center my-8 flex flex-col items-center">
+            <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 rounded-full mb-4 shadow-lg object-cover">
+            <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
+        </header>
+
+        <!-- Library View -->
+        <div id="library-view">
+            <div id="category-container" class="space-y-12"></div>
+        </div>
+
+        <!-- Reader View (Initially Hidden) -->
+        <div id="reader-view" class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-12">
+            <button id="back-to-library-btn" class="mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Library</button>
+            <main id="passage-container" class="flex-grow mb-8">
+                <h2 id="passage-title" class="header-font text-3xl sm:text-4xl font-bold mb-4 text-center text-gray-700"></h2>
+                <p id="passage-text" class="text-2xl leading-relaxed sm:leading-loose text-justify"></p>
+            </main>
+            <footer class="flex flex-col space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+                    <button id="prev-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold text-2xl py-6 px-4 rounded-xl">Previous</button>
+                    <div class="flex justify-center">
+                        <button id="play-pause-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-3xl w-24 h-24 flex items-center justify-center rounded-full transition-transform transform hover:scale-105">
+                            <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+                            <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+                            <div id="loading-spinner" class="loader hidden"></div>
+                        </button>
+                    </div>
+                    <button id="next-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold text-2xl py-6 px-4 rounded-xl">Next</button>
+                </div>
+                <button id="voice-btn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-2xl py-6 px-6 rounded-xl">Tap to Speak</button>
+                <div id="status-message" class="text-center text-gray-600 text-lg h-8 mt-4"></div>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal-overlay">
+        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md m-4">
+            <h2 class="header-font text-3xl font-bold mb-6">Settings</h2>
+            <div class="space-y-6">
+                <div>
+                    <label for="voice-select" class="block text-lg font-medium text-gray-700">Reading Voice</label>
+                    <select id="voice-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"></select>
+                </div>
+                <div>
+                    <label for="font-size-slider" class="block text-lg font-medium text-gray-700">Font Size</label>
+                    <input id="font-size-slider" type="range" min="16" max="40" value="24" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+            </div>
+            <div class="mt-8 text-right">
+                <button id="close-settings-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio-player"></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM REFERENCES ---
+            const libraryView = document.getElementById('library-view');
+            const readerView = document.getElementById('reader-view');
+            const categoryContainer = document.getElementById('category-container');
+            const backToLibraryBtn = document.getElementById('back-to-library-btn');
+            const passageTitle = document.getElementById('passage-title');
+            const passageText = document.getElementById('passage-text');
+            const playPauseBtn = document.getElementById('play-pause-btn');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            const nextBtn = document.getElementById('next-btn');
+            const prevBtn = document.getElementById('prev-btn');
+            const voiceBtn = document.getElementById('voice-btn');
+            const statusMessage = document.getElementById('status-message');
+            const audioPlayer = document.getElementById('audio-player');
+            const settingsBtn = document.getElementById('settings-btn');
+            const settingsModal = document.getElementById('settings-modal');
+            const closeSettingsBtn = document.getElementById('close-settings-btn');
+            const voiceSelect = document.getElementById('voice-select');
+            const fontSizeSlider = document.getElementById('font-size-slider');
+
+            // --- APP STATE ---
+            let bookList = [];
+            let currentBook = null;
+            let currentSectionIndex = 0;
+            let isPlaying = false;
+            let isFetching = false;
+            let conversationHistory = [];
+            let selectedVoice = 'en-GB-Standard-B'; // Default "Professor" voice
+
+            // --- BROWSER FEATURE SETUP ---
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            let recognition;
+            if (SpeechRecognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.lang = 'en-US';
+            }
+
+            // --- SETTINGS ---
+            function populateVoiceOptions() {
+                const voices = [
+                    { name: 'English Professor (UK Male)', id: 'en-GB-Standard-B' },
+                    { name: 'Standard US Female', id: 'en-US-Standard-C' },
+                    { name: 'Standard US Male', id: 'en-US-Standard-D' },
+                    { name: 'Standard UK Female', id: 'en-GB-Standard-A' },
+                ];
+                voiceSelect.innerHTML = '';
+                voices.forEach(voice => {
+                    const option = document.createElement('option');
+                    option.value = voice.id;
+                    option.textContent = voice.name;
+                    voiceSelect.appendChild(option);
+                });
+                voiceSelect.value = selectedVoice;
+            }
+            
+            settingsBtn.addEventListener('click', () => settingsModal.style.display = 'flex');
+            closeSettingsBtn.addEventListener('click', () => settingsModal.style.display = 'none');
+            voiceSelect.addEventListener('change', (e) => {
+                selectedVoice = e.target.value;
+            });
+            fontSizeSlider.addEventListener('input', (e) => {
+                const newSize = `${e.target.value}px`;
+                passageText.style.fontSize = newSize;
+                localStorage.setItem('swedenbot_fontSize', newSize);
+            });
+
+            function applySavedSettings() {
+                const savedSize = localStorage.getItem('swedenbot_fontSize') || '24px';
+                passageText.style.fontSize = savedSize;
+                fontSizeSlider.value = parseInt(savedSize, 10);
+            }
+
+            // --- CORE APP LOGIC ---
+            function showLibraryView() {
+                readerView.style.display = 'none';
+                libraryView.style.display = 'block';
+                document.body.style.backgroundColor = '#f4f1eb';
+                stopAudio();
+            }
+
+            function showReaderView() {
+                libraryView.style.display = 'none';
+                readerView.style.display = 'block';
+                document.body.style.backgroundColor = '#e5e7eb';
+            }
+
+            async function loadBook(bookId) {
+                const bookMeta = bookList.find(b => b.id === bookId);
+                if (!bookMeta) return;
+                
+                try {
+                    const response = await fetch(`./data/${bookMeta.file}`);
+                    if (!response.ok) throw new Error(`Failed to fetch ${bookMeta.file}`);
+                    currentBook = await response.json();
+                    currentSectionIndex = 0;
+                    conversationHistory = [];
+                    loadSection(currentSectionIndex);
+                    showReaderView();
+                } catch (error) {
+                    console.error("Error loading book content:", error);
+                }
+            }
+
+            function loadSection(index) {
+                if (!currentBook || index < 0 || index >= currentBook.sections.length) return;
+                currentSectionIndex = index;
+                const section = currentBook.sections[index];
+                passageTitle.textContent = `${currentBook.title}`;
+                passageText.textContent = `(${section.title}) ${section.text}`;
+                stopAudio();
+            }
+
+            // --- CONVERSATIONAL AI & AUDIO LOGIC ---
+            async function handleVoiceCommand() {
+                if (!recognition) {
+                    statusMessage.textContent = "Voice recognition not supported.";
+                    return;
+                }
+                recognition.start();
+            }
+
+            recognition.onstart = () => { statusMessage.textContent = "Listening..."; voiceBtn.classList.add('animate-pulse'); };
+            recognition.onresult = async (event) => {
+                const userText = event.results[0][0].transcript;
+                statusMessage.textContent = `You said: "${userText}"`;
+                conversationHistory.push({role: 'user', text: userText});
+                await sendToAI(userText);
+            };
+            recognition.onend = () => { voiceBtn.classList.remove('animate-pulse'); };
+
+            async function sendToAI(text) {
+                if (isFetching) return;
+                
+                const backendUrl = 'https://your-backend-function-url.com/aichat'; // <-- Replace with your actual backend URL
+
+                setLoadingState(true);
+                statusMessage.textContent = 'Swedenbot is thinking...';
+
+                try {
+                    const payload = {
+                        text: text,
+                        book: currentBook ? currentBook.title : null,
+                        section: currentBook ? currentSectionIndex : null,
+                        history: conversationHistory,
+                        voice: selectedVoice
+                    };
+
+                    const response = await fetch(backendUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error('Backend request failed');
+                    const result = await response.json();
+                    
+                    conversationHistory.push({role: 'assistant', text: result.responseText});
+
+                    if(result.action === 'read' || result.action === 'navigate' || result.action === 'respond') {
+                         if(result.sectionIndex != null) loadSection(result.sectionIndex);
+                         if(result.audioContent) playAudioFromBase64(result.audioContent);
+                    }
+
+                } catch (error) {
+                    console.error('Error with AI backend:', error);
+                    statusMessage.textContent = 'Could not connect to the AI. (Backend not connected)';
+                    setLoadingState(false);
+                }
+            }
+
+            function playAudioFromBase64(base64String) {
+                const audioUrl = `data:audio/mp3;base64,${base64String}`;
+                audioPlayer.src = audioUrl;
+                audioPlayer.play();
+            }
+            
+            audioPlayer.onplay = () => { setLoadingState(false); setPlayingState(true); };
+            audioPlayer.onpause = () => setPlayingState(false);
+            audioPlayer.onended = () => setPlayingState(false);
+
+            function stopAudio() {
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
+            }
+
+            function setLoadingState(isLoading) {
+                isFetching = isLoading;
+                playIcon.classList.toggle('hidden', isLoading);
+                pauseIcon.classList.toggle('hidden', true);
+                loadingSpinner.classList.toggle('hidden', !isLoading);
+            }
+
+            function setPlayingState(isPlayingState) {
+                isPlaying = isPlayingState;
+                playIcon.classList.toggle('hidden', isPlayingState);
+                pauseIcon.classList.toggle('hidden', !isPlayingState);
+            }
+
+            // --- INITIALIZATION ---
+            async function initialize() {
+                populateVoiceOptions();
+                applySavedSettings();
+                try {
+                    const response = await fetch('./data/books.json');
+                    if (!response.ok) throw new Error('Could not load books.json');
+                    const data = await response.json();
+                    bookList = data.books;
+                    renderLibrary();
+                } catch (error) {
+                    console.error("Initialization Error:", error);
+                    categoryContainer.innerHTML = `<p class="text-center text-red-500">Error loading library. Make sure books.json is in a 'data' folder.</p>`;
+                }
+            }
+
+            function renderLibrary() {
+                const categories = { 'Translation': [], 'Original Work': [], 'Commentary': [] };
+                bookList.forEach(book => {
+                    if (categories[book.type]) categories[book.type].push(book);
+                });
+                categoryContainer.innerHTML = '';
+                for (const [category, books] of Object.entries(categories)) {
+                    if (books.length > 0) {
+                        const categorySection = document.createElement('section');
+                        let bookCardsHTML = books.map(book => `
+                            <div class="book-card bg-white rounded-lg shadow-md p-4 cursor-pointer" data-book-id="${book.id}">
+                                <h3 class="header-font text-xl font-bold">${book.title}</h3>
+                                <p class="text-sm text-gray-600">${book.author} - ${book.language}</p>
+                            </div>
+                        `).join('');
+                        categorySection.innerHTML = `
+                            <h2 class="header-font text-4xl font-bold border-b-2 border-gray-300 pb-2 mb-6">${category}</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                ${bookCardsHTML}
+                            </div>
+                        `;
+                        categoryContainer.appendChild(categorySection);
+                    }
+                }
+                document.querySelectorAll('.book-card').forEach(card => {
+                    card.addEventListener('click', () => loadBook(card.dataset.bookId));
+                });
+            }
+
+            // --- EVENT LISTENERS ---
+            backToLibraryBtn.addEventListener('click', showLibraryView);
+            playPauseBtn.addEventListener('click', () => {
+                if (isPlaying) audioPlayer.pause();
+                else sendToAI("Read the current section aloud.");
+            });
+            nextBtn.addEventListener('click', () => loadSection(currentSectionIndex + 1));
+            prevBtn.addEventListener('click', () => loadSection(currentSectionIndex - 1));
+            voiceBtn.addEventListener('click', handleVoiceCommand);
+            
+            initialize();
+        });
+    </script>
+</body>
+</html>
