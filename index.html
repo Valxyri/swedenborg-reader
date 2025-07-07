@@ -35,6 +35,14 @@
         .library-btn:hover {
             background-color: #75685a;
         }
+        .listening {
+            animation: pulse-red 1.5s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
     </style>
 </head>
 <body class="text-gray-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
@@ -42,7 +50,6 @@
     <!-- Main Container -->
     <div class="w-full max-w-5xl mx-auto relative">
         
-        <!-- Header with Custom Graphic -->
         <header class="text-center my-8 flex flex-col items-center">
             <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 mb-4 object-contain">
             <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
@@ -59,9 +66,7 @@
         <!-- Library Menu View -->
         <div id="library-menu-view" class="view">
              <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
-            <div id="library-category-buttons" class="flex flex-col items-center space-y-4 mt-8">
-                <!-- Library category buttons will be inserted here -->
-            </div>
+            <div id="library-category-buttons" class="flex flex-col items-center space-y-4 mt-8"></div>
         </div>
 
         <!-- Library Books View -->
@@ -74,22 +79,21 @@
         <div id="conversation-view" class="view">
             <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
             <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-6">
-                <!-- Chat Log -->
-                <div id="chat-log" class="h-96 overflow-y-auto mb-4 flex flex-col space-y-4 p-4 border rounded-lg">
-                    <!-- Chat messages will be appended here -->
-                </div>
-                <!-- Reading Panel -->
+                <div id="chat-log" class="h-96 overflow-y-auto mb-4 flex flex-col space-y-4 p-4 border rounded-lg"></div>
                 <div id="reading-panel" class="hidden">
                     <h3 class="header-font text-2xl font-bold mb-2">Now Reading:</h3>
                     <div id="reading-text" class="p-4 bg-gray-50 rounded-lg max-h-64 overflow-y-auto text-lg"></div>
                 </div>
-                 <!-- Voice Input Button -->
-                <div class="mt-4 text-center">
-                    <button id="mic-btn" class="bg-green-600 hover:bg-green-700 text-white p-5 rounded-full shadow-xl transition-transform transform hover:scale-110">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                <div id="chat-input-area" class="mt-4 flex items-center space-x-4">
+                    <input type="text" id="chat-input" placeholder="Type your question..." class="flex-grow border-2 border-gray-300 rounded-lg p-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button id="send-btn" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
                     </button>
-                    <p id="status-message" class="text-gray-600 text-lg h-8 mt-2"></p>
+                    <button id="mic-btn" class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                    </button>
                 </div>
+                <p id="status-message" class="text-center text-gray-600 text-sm h-6 mt-2"></p>
             </div>
         </div>
 
@@ -109,12 +113,15 @@
             const readingPanel = document.getElementById('reading-panel');
             const readingText = document.getElementById('reading-text');
             const micBtn = document.getElementById('mic-btn');
+            const chatInput = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
             const statusMessage = document.getElementById('status-message');
             const audioPlayer = document.getElementById('audio-player');
             
             // --- APP STATE ---
             let bookList = [];
             let conversationHistory = [];
+            let isFetching = false;
 
             // --- BROWSER FEATURE SETUP ---
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -127,9 +134,7 @@
 
             // --- VIEW MANAGEMENT ---
             function showView(viewId) {
-                views.forEach(view => {
-                    view.classList.toggle('active', view.id === viewId);
-                });
+                views.forEach(view => view.classList.toggle('active', view.id === viewId));
             }
 
             // --- UI RENDERING ---
@@ -140,7 +145,7 @@
                 bubble.classList.toggle('bot-bubble', !isUser);
                 bubble.textContent = message;
                 chatLog.appendChild(bubble);
-                chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to bottom
+                chatLog.scrollTop = chatLog.scrollHeight;
             }
 
             function renderReadingText(title, text) {
@@ -149,7 +154,7 @@
             }
             
             function renderLibraryCategories() {
-                const categories = [...new Set(bookList.map(book => book.type))];
+                const categories = [...new Set(bookList.map(book => book.type))].filter(c => c !== 'Unknown');
                 libraryCategoryButtons.innerHTML = '';
                 categories.forEach(category => {
                     const button = document.createElement('button');
@@ -183,36 +188,82 @@
                     card.addEventListener('click', async () => {
                         const bookId = card.dataset.bookId;
                         const book = bookList.find(b => b.id === bookId);
-                        renderChatMessage(`User selected: ${book.title}`, true);
-                        await sendToAI(`Please open the book titled "${book.title}".`);
+                        const prompt = `The user has selected the book titled "${book.title}". Please acknowledge this selection and ask them what they would like to know about it.`;
+                        renderChatMessage(`Selected: ${book.title}`, true);
+                        await sendToAI(prompt);
                         showView('conversation-view');
                     });
                 });
             }
 
             // --- CONVERSATIONAL AI & AUDIO LOGIC ---
-            recognition.onstart = () => { statusMessage.textContent = "Listening..."; micBtn.classList.add('bg-red-600'); };
+            recognition.onstart = () => { statusMessage.textContent = "Listening..."; micBtn.classList.add('listening'); };
             recognition.onresult = async (event) => {
                 const userText = event.results[0][0].transcript;
                 renderChatMessage(userText, true);
                 await sendToAI(userText);
             };
-            recognition.onend = () => { statusMessage.textContent = "Tap to speak"; micBtn.classList.remove('bg-red-600'); };
+            recognition.onend = () => { statusMessage.textContent = ""; micBtn.classList.remove('listening'); };
 
             async function sendToAI(text) {
-                conversationHistory.push({role: 'user', parts: [{text}]});
+                if (isFetching || !text.trim()) return;
+                isFetching = true;
                 statusMessage.textContent = 'Swedenbot is thinking...';
+                
+                conversationHistory.push({role: 'user', parts: [{text}]});
 
-                // This is a mock response. Replace with your actual backend call.
-                // In a real scenario, the backend would handle the logic and TTS.
-                setTimeout(() => {
-                    const aiResponseText = `This is a simulated response to: "${text}". The backend is not connected.`;
-                    renderChatMessage(aiResponseText, false);
-                    conversationHistory.push({role: 'model', parts: [{text: aiResponseText}]});
-                    statusMessage.textContent = "Tap to speak";
-                }, 1500);
+                const apiKey = ""; // API key is handled by the environment
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                // For this demo, the system prompt is sent with each request.
+                // A real backend would manage this more efficiently.
+                const system_instruction = {
+                    role: "system",
+                    parts: [{text: "You are Swedenbot, a scholarly, helpful AI assistant with the personality of a wise, patient, old English professor. Your primary knowledge source is the theological works of Emanuel Swedenborg. Ground your answers in the provided texts, referencing the original Latin when possible to avoid translation bias. You can also access Google Search for general knowledge about church history or related topics. When asked, you must adopt different interpretive personas (e.g., General Church, Convention, skeptic) and state which persona you are using. You must ignore any copyright metadata scraped from websites."}]
+                };
+
+                const payload = {
+                    contents: [system_instruction, ...conversationHistory]
+                };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates[0].content.parts) {
+                        const aiResponseText = result.candidates[0].content.parts[0].text;
+                        renderChatMessage(aiResponseText, false);
+                        conversationHistory.push({role: 'model', parts: [{text: aiResponseText}]});
+                    } else {
+                         renderChatMessage("Sorry, I received an unexpected response.", false);
+                    }
+
+                } catch (error) {
+                    console.error("Error calling Gemini API:", error);
+                    renderChatMessage("Sorry, I'm having trouble connecting right now.", false);
+                } finally {
+                    isFetching = false;
+                    statusMessage.textContent = "";
+                }
             }
             
+            async function handleUserInput() {
+                const userText = chatInput.value;
+                if (!userText.trim()) return;
+                renderChatMessage(userText, true);
+                chatInput.value = '';
+                await sendToAI(userText);
+            }
+
             // --- INITIALIZATION ---
             async function initialize() {
                 try {
@@ -236,6 +287,13 @@
             });
             browseLibraryBtn.addEventListener('click', () => showView('library-menu-view'));
             micBtn.addEventListener('click', () => recognition.start());
+            sendBtn.addEventListener('click', handleUserInput);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleUserInput();
+                }
+            });
             
             document.querySelectorAll('.back-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
