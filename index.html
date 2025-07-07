@@ -9,28 +9,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #f4f1eb; font-family: 'Lora', serif; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+        body { background-color: #f4f1eb; font-family: 'Lora', serif; }
         .header-font { font-family: 'IM Fell English', serif; }
-        .book-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
-        .book-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
-        #reader-view, #settings-modal { display: none; }
-        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 50; }
-        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        /* Floating Action Button for Voice */
-        #floating-voice-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 40;
+        .view { display: none; } /* All views are hidden by default */
+        .view.active { display: block; }
+        .chat-bubble { max-width: 80%; }
+        .user-bubble { background-color: #dbeafe; align-self: flex-end; }
+        .bot-bubble { background-color: #ffffff; align-self: flex-start; }
+        .main-menu-btn {
+            background-color: #605A51;
+            color: white;
+            font-family: 'IM Fell English', serif;
+            transition: background-color 0.3s, transform 0.2s;
         }
-        .listening {
-            animation: pulse-red 1.5s infinite;
+        .main-menu-btn:hover {
+            background-color: #4a443e;
+            transform: translateY(-3px);
         }
-        @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(220, 38, 38, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        .library-btn {
+            background-color: #8c7d6e;
+            color: white;
+            font-family: 'IM Fell English', serif;
+            transition: background-color 0.3s;
+        }
+        .library-btn:hover {
+            background-color: #75685a;
         }
     </style>
 </head>
@@ -39,109 +42,79 @@
     <!-- Main Container -->
     <div class="w-full max-w-5xl mx-auto relative">
         
-        <!-- Settings Button -->
-        <div class="absolute top-4 right-4 z-10">
-            <button id="settings-btn" class="p-2 rounded-full hover:bg-gray-200 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-            </button>
-        </div>
-
         <!-- Header with Custom Graphic -->
         <header class="text-center my-8 flex flex-col items-center">
-            <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 mb-4 shadow-lg object-contain">
+            <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 mb-4 object-contain">
             <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
-            <p id="header-subtitle" class="text-lg text-gray-600 mt-2">Select a book to read, or tap the microphone to ask a question.</p>
         </header>
 
-        <!-- Library View -->
-        <div id="library-view">
+        <!-- Main Menu View -->
+        <div id="main-menu-view" class="view active">
+            <div class="flex flex-col items-center space-y-6 mt-12">
+                <button id="ask-question-btn" class="main-menu-btn text-3xl sm:text-4xl py-6 px-12 rounded-lg shadow-lg">Ask a Question</button>
+                <button id="browse-library-btn" class="main-menu-btn text-3xl sm:text-4xl py-6 px-12 rounded-lg shadow-lg">Browse the Library</button>
+            </div>
+        </div>
+        
+        <!-- Library Menu View -->
+        <div id="library-menu-view" class="view">
+             <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
+            <div id="library-category-buttons" class="flex flex-col items-center space-y-4 mt-8">
+                <!-- Library category buttons will be inserted here -->
+            </div>
+        </div>
+
+        <!-- Library Books View -->
+        <div id="library-books-view" class="view">
+            <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Library</button>
             <div id="category-container" class="space-y-12"></div>
         </div>
 
-        <!-- Reader View (Initially Hidden) -->
-        <div id="reader-view" class="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-12">
-            <button id="back-to-library-btn" class="mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Library</button>
-            <main id="passage-container" class="flex-grow mb-8">
-                <h2 id="passage-title" class="header-font text-3xl sm:text-4xl font-bold mb-4 text-center text-gray-700"></h2>
-                <p id="passage-text" class="text-2xl leading-relaxed sm:leading-loose text-justify"></p>
-            </main>
-            <footer class="flex flex-col space-y-4">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
-                    <button id="prev-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold text-2xl py-6 px-4 rounded-xl">Previous</button>
-                    <div class="flex justify-center">
-                        <button id="play-pause-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold text-3xl w-24 h-24 flex items-center justify-center rounded-full transition-transform transform hover:scale-105">
-                            <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
-                            <svg id="pause-icon" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-                            <div id="loading-spinner" class="loader hidden"></div>
-                        </button>
-                    </div>
-                    <button id="next-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold text-2xl py-6 px-4 rounded-xl">Next</button>
+        <!-- Conversation View -->
+        <div id="conversation-view" class="view">
+            <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
+            <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-6">
+                <!-- Chat Log -->
+                <div id="chat-log" class="h-96 overflow-y-auto mb-4 flex flex-col space-y-4 p-4 border rounded-lg">
+                    <!-- Chat messages will be appended here -->
                 </div>
-                <div id="status-message" class="text-center text-gray-600 text-lg h-8 mt-4"></div>
-            </footer>
+                <!-- Reading Panel -->
+                <div id="reading-panel" class="hidden">
+                    <h3 class="header-font text-2xl font-bold mb-2">Now Reading:</h3>
+                    <div id="reading-text" class="p-4 bg-gray-50 rounded-lg max-h-64 overflow-y-auto text-lg"></div>
+                </div>
+                 <!-- Voice Input Button -->
+                <div class="mt-4 text-center">
+                    <button id="mic-btn" class="bg-green-600 hover:bg-green-700 text-white p-5 rounded-full shadow-xl transition-transform transform hover:scale-110">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                    </button>
+                    <p id="status-message" class="text-gray-600 text-lg h-8 mt-2"></p>
+                </div>
+            </div>
         </div>
+
     </div>
     
-    <!-- Floating Voice Button -->
-    <button id="floating-voice-btn" class="bg-green-700 hover:bg-green-800 text-white p-5 rounded-full shadow-xl transition-transform transform hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
-    </button>
-
-    <!-- Settings Modal -->
-    <div id="settings-modal" class="modal-overlay">
-        <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md m-4">
-            <h2 class="header-font text-3xl font-bold mb-6">Settings</h2>
-            <div class="space-y-6">
-                <div>
-                    <label for="voice-select" class="block text-lg font-medium text-gray-700">Reading Voice</label>
-                    <select id="voice-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"></select>
-                </div>
-                <div>
-                    <label for="font-size-slider" class="block text-lg font-medium text-gray-700">Font Size</label>
-                    <input id="font-size-slider" type="range" min="16" max="40" value="24" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                </div>
-            </div>
-            <div class="mt-8 text-right">
-                <button id="close-settings-btn" class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg">Close</button>
-            </div>
-        </div>
-    </div>
-
     <audio id="audio-player"></audio>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- DOM REFERENCES ---
-            const libraryView = document.getElementById('library-view');
-            const readerView = document.getElementById('reader-view');
+            const views = document.querySelectorAll('.view');
+            const askQuestionBtn = document.getElementById('ask-question-btn');
+            const browseLibraryBtn = document.getElementById('browse-library-btn');
+            const libraryCategoryButtons = document.getElementById('library-category-buttons');
             const categoryContainer = document.getElementById('category-container');
-            const backToLibraryBtn = document.getElementById('back-to-library-btn');
-            const passageTitle = document.getElementById('passage-title');
-            const passageText = document.getElementById('passage-text');
-            const playPauseBtn = document.getElementById('play-pause-btn');
-            const playIcon = document.getElementById('play-icon');
-            const pauseIcon = document.getElementById('pause-icon');
-            const loadingSpinner = document.getElementById('loading-spinner');
-            const nextBtn = document.getElementById('next-btn');
-            const prevBtn = document.getElementById('prev-btn');
-            const floatingVoiceBtn = document.getElementById('floating-voice-btn');
+            const chatLog = document.getElementById('chat-log');
+            const readingPanel = document.getElementById('reading-panel');
+            const readingText = document.getElementById('reading-text');
+            const micBtn = document.getElementById('mic-btn');
             const statusMessage = document.getElementById('status-message');
             const audioPlayer = document.getElementById('audio-player');
-            const settingsBtn = document.getElementById('settings-btn');
-            const settingsModal = document.getElementById('settings-modal');
-            const closeSettingsBtn = document.getElementById('close-settings-btn');
-            const voiceSelect = document.getElementById('voice-select');
-            const fontSizeSlider = document.getElementById('font-size-slider');
-            const headerSubtitle = document.getElementById('header-subtitle');
-
+            
             // --- APP STATE ---
             let bookList = [];
-            let currentBook = null;
-            let currentSectionIndex = 0;
-            let isPlaying = false;
-            let isFetching = false;
             let conversationHistory = [];
-            let selectedVoice = 'en-GB-Standard-B'; // Default "Professor" voice
 
             // --- BROWSER FEATURE SETUP ---
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -152,222 +125,128 @@
                 recognition.lang = 'en-US';
             }
 
-            // --- SETTINGS ---
-            function populateVoiceOptions() {
-                const voices = [
-                    { name: 'English Professor (UK Male)', id: 'en-GB-Standard-B' },
-                    { name: 'Standard US Female', id: 'en-US-Standard-C' },
-                    { name: 'Standard US Male', id: 'en-US-Standard-D' },
-                    { name: 'Standard UK Female', id: 'en-GB-Standard-A' },
-                ];
-                voiceSelect.innerHTML = '';
-                voices.forEach(voice => {
-                    const option = document.createElement('option');
-                    option.value = voice.id;
-                    option.textContent = voice.name;
-                    voiceSelect.appendChild(option);
+            // --- VIEW MANAGEMENT ---
+            function showView(viewId) {
+                views.forEach(view => {
+                    view.classList.toggle('active', view.id === viewId);
                 });
-                voiceSelect.value = selectedVoice;
+            }
+
+            // --- UI RENDERING ---
+            function renderChatMessage(message, isUser) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('chat-bubble', 'p-4', 'rounded-xl');
+                bubble.classList.toggle('user-bubble', isUser);
+                bubble.classList.toggle('bot-bubble', !isUser);
+                bubble.textContent = message;
+                chatLog.appendChild(bubble);
+                chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to bottom
+            }
+
+            function renderReadingText(title, text) {
+                readingPanel.classList.remove('hidden');
+                readingText.innerHTML = `<p><strong class="header-font">${title}</strong></p><p>${text}</p>`;
             }
             
-            settingsBtn.addEventListener('click', () => settingsModal.style.display = 'flex');
-            closeSettingsBtn.addEventListener('click', () => settingsModal.style.display = 'none');
-            voiceSelect.addEventListener('change', (e) => {
-                selectedVoice = e.target.value;
-            });
-            fontSizeSlider.addEventListener('input', (e) => {
-                const newSize = `${e.target.value}px`;
-                passageText.style.fontSize = newSize;
-                localStorage.setItem('swedenbot_fontSize', newSize);
-            });
-
-            function applySavedSettings() {
-                const savedSize = localStorage.getItem('swedenbot_fontSize') || '24px';
-                passageText.style.fontSize = savedSize;
-                fontSizeSlider.value = parseInt(savedSize, 10);
+            function renderLibraryCategories() {
+                const categories = [...new Set(bookList.map(book => book.type))];
+                libraryCategoryButtons.innerHTML = '';
+                categories.forEach(category => {
+                    const button = document.createElement('button');
+                    button.textContent = category;
+                    button.className = 'library-btn text-2xl sm:text-3xl py-4 px-8 rounded-lg shadow-md w-full max-w-md';
+                    button.addEventListener('click', () => {
+                        renderBookList(category);
+                        showView('library-books-view');
+                    });
+                    libraryCategoryButtons.appendChild(button);
+                });
             }
 
-            // --- CORE APP LOGIC ---
-            function showLibraryView() {
-                readerView.style.display = 'none';
-                libraryView.style.display = 'block';
-                headerSubtitle.textContent = "Select a book to read, or tap the microphone to ask a question.";
-                stopAudio();
-            }
+            function renderBookList(category) {
+                const booksInCategory = bookList.filter(book => book.type === category);
+                let bookCardsHTML = booksInCategory.map(book => `
+                    <div class="book-card bg-white rounded-lg shadow-md p-4 cursor-pointer" data-book-id="${book.id}">
+                        <h3 class="header-font text-xl font-bold">${book.title}</h3>
+                        <p class="text-sm text-gray-600">${book.author} - ${book.language}</p>
+                    </div>
+                `).join('');
 
-            function showReaderView() {
-                libraryView.style.display = 'none';
-                readerView.style.display = 'block';
-                headerSubtitle.textContent = "You are now reading a book.";
-            }
+                categoryContainer.innerHTML = `
+                    <h2 class="header-font text-4xl font-bold border-b-2 border-gray-300 pb-2 mb-6">${category}</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${bookCardsHTML}
+                    </div>
+                `;
 
-            async function loadBook(bookId) {
-                const bookMeta = bookList.find(b => b.id === bookId);
-                if (!bookMeta) return;
-                
-                try {
-                    const response = await fetch(`./data/${bookMeta.file}`);
-                    if (!response.ok) throw new Error(`Failed to fetch ${bookMeta.file}`);
-                    currentBook = await response.json();
-                    currentSectionIndex = 0;
-                    conversationHistory = [];
-                    loadSection(currentSectionIndex);
-                    showReaderView();
-                } catch (error) {
-                    console.error("Error loading book content:", error);
-                }
-            }
-
-            function loadSection(index) {
-                if (!currentBook || index < 0 || index >= currentBook.sections.length) return;
-                currentSectionIndex = index;
-                const section = currentBook.sections[index];
-                passageTitle.textContent = `${currentBook.title}`;
-                passageText.textContent = `(${section.title}) ${section.text}`;
-                stopAudio();
+                document.querySelectorAll('.book-card').forEach(card => {
+                    card.addEventListener('click', async () => {
+                        const bookId = card.dataset.bookId;
+                        const book = bookList.find(b => b.id === bookId);
+                        renderChatMessage(`User selected: ${book.title}`, true);
+                        await sendToAI(`Please open the book titled "${book.title}".`);
+                        showView('conversation-view');
+                    });
+                });
             }
 
             // --- CONVERSATIONAL AI & AUDIO LOGIC ---
-            async function handleVoiceCommand() {
-                if (!recognition) {
-                    statusMessage.textContent = "Voice recognition not supported.";
-                    return;
-                }
-                recognition.start();
-            }
-
-            recognition.onstart = () => { statusMessage.textContent = "Listening..."; floatingVoiceBtn.classList.add('listening'); };
+            recognition.onstart = () => { statusMessage.textContent = "Listening..."; micBtn.classList.add('bg-red-600'); };
             recognition.onresult = async (event) => {
                 const userText = event.results[0][0].transcript;
-                statusMessage.textContent = `You said: "${userText}"`;
-                conversationHistory.push({role: 'user', text: userText});
+                renderChatMessage(userText, true);
                 await sendToAI(userText);
             };
-            recognition.onend = () => { floatingVoiceBtn.classList.remove('listening'); };
+            recognition.onend = () => { statusMessage.textContent = "Tap to speak"; micBtn.classList.remove('bg-red-600'); };
 
             async function sendToAI(text) {
-                if (isFetching) return;
-                
-                const backendUrl = 'https://your-backend-function-url.com/aichat'; // <-- Replace with your actual backend URL
-
-                setLoadingState(true);
+                conversationHistory.push({role: 'user', parts: [{text}]});
                 statusMessage.textContent = 'Swedenbot is thinking...';
 
-                try {
-                    const payload = {
-                        text: text,
-                        book: currentBook ? currentBook.title : null,
-                        section: currentBook ? currentSectionIndex : null,
-                        history: conversationHistory,
-                        voice: selectedVoice
-                    };
-
-                    const response = await fetch(backendUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) throw new Error('Backend request failed');
-                    const result = await response.json();
-                    
-                    conversationHistory.push({role: 'assistant', text: result.responseText});
-
-                    if(result.action === 'read' || result.action === 'navigate' || result.action === 'respond') {
-                         if(result.sectionIndex != null) loadSection(result.sectionIndex);
-                         if(result.audioContent) playAudioFromBase64(result.audioContent);
-                    }
-
-                } catch (error) {
-                    console.error('Error with AI backend:', error);
-                    statusMessage.textContent = 'Could not connect to the AI. (Backend not connected)';
-                    setLoadingState(false);
-                }
-            }
-
-            function playAudioFromBase64(base64String) {
-                const audioUrl = `data:audio/mp3;base64,${base64String}`;
-                audioPlayer.src = audioUrl;
-                audioPlayer.play();
+                // This is a mock response. Replace with your actual backend call.
+                // In a real scenario, the backend would handle the logic and TTS.
+                setTimeout(() => {
+                    const aiResponseText = `This is a simulated response to: "${text}". The backend is not connected.`;
+                    renderChatMessage(aiResponseText, false);
+                    conversationHistory.push({role: 'model', parts: [{text: aiResponseText}]});
+                    statusMessage.textContent = "Tap to speak";
+                }, 1500);
             }
             
-            audioPlayer.onplay = () => { setLoadingState(false); setPlayingState(true); };
-            audioPlayer.onpause = () => setPlayingState(false);
-            audioPlayer.onended = () => setPlayingState(false);
-
-            function stopAudio() {
-                audioPlayer.pause();
-                audioPlayer.currentTime = 0;
-            }
-
-            function setLoadingState(isLoading) {
-                isFetching = isLoading;
-                playIcon.classList.toggle('hidden', isLoading);
-                pauseIcon.classList.toggle('hidden', true);
-                loadingSpinner.classList.toggle('hidden', !isLoading);
-            }
-
-            function setPlayingState(isPlayingState) {
-                isPlaying = isPlayingState;
-                playIcon.classList.toggle('hidden', isPlayingState);
-                pauseIcon.classList.toggle('hidden', !isPlayingState);
-            }
-
             // --- INITIALIZATION ---
             async function initialize() {
-                populateVoiceOptions();
-                applySavedSettings();
                 try {
                     const response = await fetch('./data/books.json');
                     if (!response.ok) throw new Error('Could not load books.json');
                     const data = await response.json();
                     bookList = data.books;
-                    renderLibrary();
+                    renderLibraryCategories();
                 } catch (error) {
                     console.error("Initialization Error:", error);
-                    categoryContainer.innerHTML = `<p class="text-center text-red-500">Error loading library. Make sure books.json is in a 'data' folder.</p>`;
+                    libraryCategoryButtons.innerHTML = `<p class="text-center text-red-500">Error loading library.</p>`;
                 }
-            }
-
-            function renderLibrary() {
-                const categories = { 'Translation': [], 'Original Work': [], 'Commentary': [] };
-                bookList.forEach(book => {
-                    if (categories[book.type]) categories[book.type].push(book);
-                });
-                categoryContainer.innerHTML = '';
-                for (const [category, books] of Object.entries(categories)) {
-                    if (books.length > 0) {
-                        const categorySection = document.createElement('section');
-                        let bookCardsHTML = books.map(book => `
-                            <div class="book-card bg-white rounded-lg shadow-md p-4 cursor-pointer" data-book-id="${book.id}">
-                                <h3 class="header-font text-xl font-bold">${book.title}</h3>
-                                <p class="text-sm text-gray-600">${book.author} - ${book.language}</p>
-                            </div>
-                        `).join('');
-                        categorySection.innerHTML = `
-                            <h2 class="header-font text-4xl font-bold border-b-2 border-gray-300 pb-2 mb-6">${category}</h2>
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                ${bookCardsHTML}
-                            </div>
-                        `;
-                        categoryContainer.appendChild(categorySection);
-                    }
-                }
-                document.querySelectorAll('.book-card').forEach(card => {
-                    card.addEventListener('click', () => loadBook(card.dataset.bookId));
-                });
             }
 
             // --- EVENT LISTENERS ---
-            backToLibraryBtn.addEventListener('click', showLibraryView);
-            playPauseBtn.addEventListener('click', () => {
-                if (isPlaying) audioPlayer.pause();
-                else sendToAI("Read the current section aloud.");
+            askQuestionBtn.addEventListener('click', () => {
+                showView('conversation-view');
+                if (conversationHistory.length === 0) {
+                     renderChatMessage("Hello! How can I help you explore the works of Emanuel Swedenborg today?", false);
+                }
             });
-            nextBtn.addEventListener('click', () => loadSection(currentSectionIndex + 1));
-            prevBtn.addEventListener('click', () => loadSection(currentSectionIndex - 1));
-            floatingVoiceBtn.addEventListener('click', handleVoiceCommand);
+            browseLibraryBtn.addEventListener('click', () => showView('library-menu-view'));
+            micBtn.addEventListener('click', () => recognition.start());
             
+            document.querySelectorAll('.back-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (document.getElementById('library-books-view').classList.contains('active')) {
+                        showView('library-menu-view');
+                    } else {
+                        showView('main-menu-view');
+                    }
+                });
+            });
+
             initialize();
         });
     </script>
