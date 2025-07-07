@@ -213,9 +213,8 @@
                 
                 conversationHistory.push({role: 'user', parts: [{text}]});
 
-                // --- THIS IS THE LIVE CONNECTION TO YOUR BACKEND ---
-                // Replace this placeholder with the URL from your Vercel deployment
-                const backendUrl = 'https://your-vercel-backend-url.vercel.app/aichat';
+                // --- THIS IS THE LIVE CONNECTION TO YOUR VERCEL BACKEND ---
+                const backendUrl = 'https://swedenborg-reader.vercel.app/aichat';
                 
                 const payload = {
                     text: text,
