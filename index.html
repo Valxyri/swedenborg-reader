@@ -214,7 +214,7 @@
                 conversationHistory.push({role: 'user', parts: [{text}]});
 
                 // --- THIS IS THE LIVE CONNECTION TO YOUR VERCEL BACKEND ---
-                const backendUrl = 'https://swedenborg-reader.vercel.app/aichat';
+                const backendUrl = '/api/index'; // Vercel handles routing this to api/index.py
                 
                 const payload = {
                     text: text,
