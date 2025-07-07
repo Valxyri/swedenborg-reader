@@ -17,6 +17,13 @@
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 50; }
         .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* Floating Action Button for Voice */
+        #floating-voice-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 40;
+        }
     </style>
 </head>
 <body class="text-gray-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
@@ -35,6 +42,7 @@
         <header class="text-center my-8 flex flex-col items-center">
             <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 rounded-full mb-4 shadow-lg object-cover">
             <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
+            <p id="header-subtitle" class="text-lg text-gray-600 mt-2">Select a book to read, or tap the microphone to ask a question.</p>
         </header>
 
         <!-- Library View -->
@@ -61,12 +69,16 @@
                     </div>
                     <button id="next-btn" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold text-2xl py-6 px-4 rounded-xl">Next</button>
                 </div>
-                <button id="voice-btn" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold text-2xl py-6 px-6 rounded-xl">Tap to Speak</button>
                 <div id="status-message" class="text-center text-gray-600 text-lg h-8 mt-4"></div>
             </footer>
         </div>
     </div>
     
+    <!-- Floating Voice Button -->
+    <button id="floating-voice-btn" class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+    </button>
+
     <!-- Settings Modal -->
     <div id="settings-modal" class="modal-overlay">
         <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md m-4">
@@ -104,7 +116,7 @@
             const loadingSpinner = document.getElementById('loading-spinner');
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
-            const voiceBtn = document.getElementById('voice-btn');
+            const floatingVoiceBtn = document.getElementById('floating-voice-btn');
             const statusMessage = document.getElementById('status-message');
             const audioPlayer = document.getElementById('audio-player');
             const settingsBtn = document.getElementById('settings-btn');
@@ -112,6 +124,7 @@
             const closeSettingsBtn = document.getElementById('close-settings-btn');
             const voiceSelect = document.getElementById('voice-select');
             const fontSizeSlider = document.getElementById('font-size-slider');
+            const headerSubtitle = document.getElementById('header-subtitle');
 
             // --- APP STATE ---
             let bookList = [];
@@ -170,14 +183,14 @@
             function showLibraryView() {
                 readerView.style.display = 'none';
                 libraryView.style.display = 'block';
-                document.body.style.backgroundColor = '#f4f1eb';
+                headerSubtitle.textContent = "Select a book to read, or tap the microphone to ask a question.";
                 stopAudio();
             }
 
             function showReaderView() {
                 libraryView.style.display = 'none';
                 readerView.style.display = 'block';
-                document.body.style.backgroundColor = '#e5e7eb';
+                headerSubtitle.textContent = "You are now reading a book.";
             }
 
             async function loadBook(bookId) {
@@ -215,14 +228,14 @@
                 recognition.start();
             }
 
-            recognition.onstart = () => { statusMessage.textContent = "Listening..."; voiceBtn.classList.add('animate-pulse'); };
+            recognition.onstart = () => { statusMessage.textContent = "Listening..."; floatingVoiceBtn.classList.add('animate-pulse', 'bg-red-600'); };
             recognition.onresult = async (event) => {
                 const userText = event.results[0][0].transcript;
                 statusMessage.textContent = `You said: "${userText}"`;
                 conversationHistory.push({role: 'user', text: userText});
                 await sendToAI(userText);
             };
-            recognition.onend = () => { voiceBtn.classList.remove('animate-pulse'); };
+            recognition.onend = () => { floatingVoiceBtn.classList.remove('animate-pulse', 'bg-red-600'); };
 
             async function sendToAI(text) {
                 if (isFetching) return;
@@ -345,7 +358,7 @@
             });
             nextBtn.addEventListener('click', () => loadSection(currentSectionIndex + 1));
             prevBtn.addEventListener('click', () => loadSection(currentSectionIndex - 1));
-            voiceBtn.addEventListener('click', handleVoiceCommand);
+            floatingVoiceBtn.addEventListener('click', handleVoiceCommand);
             
             initialize();
         });
