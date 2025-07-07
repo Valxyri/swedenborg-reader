@@ -24,6 +24,14 @@
             right: 2rem;
             z-index: 40;
         }
+        .listening {
+            animation: pulse-red 1.5s infinite;
+        }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
     </style>
 </head>
 <body class="text-gray-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
@@ -40,7 +48,7 @@
 
         <!-- Header with Custom Graphic -->
         <header class="text-center my-8 flex flex-col items-center">
-            <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 rounded-full mb-4 shadow-lg object-cover">
+            <img src="musicians.png" alt="Swedenbot Logo" class="w-32 h-32 sm:w-48 sm:h-48 mb-4 shadow-lg object-contain">
             <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
             <p id="header-subtitle" class="text-lg text-gray-600 mt-2">Select a book to read, or tap the microphone to ask a question.</p>
         </header>
@@ -75,8 +83,8 @@
     </div>
     
     <!-- Floating Voice Button -->
-    <button id="floating-voice-btn" class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-transform transform hover:scale-110">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+    <button id="floating-voice-btn" class="bg-green-700 hover:bg-green-800 text-white p-5 rounded-full shadow-xl transition-transform transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
     </button>
 
     <!-- Settings Modal -->
@@ -228,14 +236,14 @@
                 recognition.start();
             }
 
-            recognition.onstart = () => { statusMessage.textContent = "Listening..."; floatingVoiceBtn.classList.add('animate-pulse', 'bg-red-600'); };
+            recognition.onstart = () => { statusMessage.textContent = "Listening..."; floatingVoiceBtn.classList.add('listening'); };
             recognition.onresult = async (event) => {
                 const userText = event.results[0][0].transcript;
                 statusMessage.textContent = `You said: "${userText}"`;
                 conversationHistory.push({role: 'user', text: userText});
                 await sendToAI(userText);
             };
-            recognition.onend = () => { floatingVoiceBtn.classList.remove('animate-pulse', 'bg-red-600'); };
+            recognition.onend = () => { floatingVoiceBtn.classList.remove('listening'); };
 
             async function sendToAI(text) {
                 if (isFetching) return;
