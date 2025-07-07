@@ -13,31 +13,20 @@
         .header-font { font-family: 'IM Fell English', serif; }
         .view { display: none; } /* All views are hidden by default */
         .view.active { display: block; }
-        .chat-bubble { max-width: 80%; }
+        .chat-bubble { max-width: 80%; word-wrap: break-word; }
         .user-bubble { background-color: #dbeafe; align-self: flex-end; }
         .bot-bubble { background-color: #ffffff; align-self: flex-start; }
         .main-menu-btn {
-            background-color: #605A51;
-            color: white;
-            font-family: 'IM Fell English', serif;
+            background-color: #605A51; color: white; font-family: 'IM Fell English', serif;
             transition: background-color 0.3s, transform 0.2s;
         }
-        .main-menu-btn:hover {
-            background-color: #4a443e;
-            transform: translateY(-3px);
-        }
+        .main-menu-btn:hover { background-color: #4a443e; transform: translateY(-3px); }
         .library-btn {
-            background-color: #8c7d6e;
-            color: white;
-            font-family: 'IM Fell English', serif;
+            background-color: #8c7d6e; color: white; font-family: 'IM Fell English', serif;
             transition: background-color 0.3s;
         }
-        .library-btn:hover {
-            background-color: #75685a;
-        }
-        .listening {
-            animation: pulse-red 1.5s infinite;
-        }
+        .library-btn:hover { background-color: #75685a; }
+        .listening { animation: pulse-red 1.5s infinite; }
         @keyframes pulse-red {
             0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
             70% { box-shadow: 0 0 0 20px rgba(220, 38, 38, 0); }
@@ -51,7 +40,6 @@
     <div class="w-full max-w-5xl mx-auto relative">
         
         <header class="text-center my-8 flex flex-col items-center">
-            <!-- Increased logo size for better balance -->
             <img src="musicians.png" alt="Swedenbot Logo" class="w-40 h-40 sm:w-56 sm:h-56 mb-4 object-contain">
             <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
         </header>
@@ -72,7 +60,7 @@
 
         <!-- Library Books View -->
         <div id="library-books-view" class="view">
-            <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Library</button>
+            <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Library Menu</button>
             <div id="category-container" class="space-y-12"></div>
         </div>
 

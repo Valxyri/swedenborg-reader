@@ -1,1612 +1,403 @@
 {
   "books": [
     {
-      "id": "9q_latin",
-      "title": "9Q Latin",
-      "file": "9q_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ac_latin",
-      "title": "Ac Latin",
-      "file": "ac_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ae_latin",
-      "title": "Ae Latin",
-      "file": "ae_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ang_latin",
-      "title": "Ang Latin",
-      "file": "ang_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ar_latin",
-      "title": "Ar Latin",
-      "file": "ar_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ath_latin",
-      "title": "Ath Latin",
-      "file": "ath_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "be_latin",
-      "title": "Be Latin",
-      "file": "be_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "bsn_vol1_191113",
-      "title": "Bsn Vol1 191113",
-      "file": "bsn_vol1_191113.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "bsn_vol2_191113",
-      "title": "Bsn Vol2 191113",
-      "file": "bsn_vol2_191113.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "bsn_vol3_191113",
-      "title": "Bsn Vol3 191113",
-      "file": "bsn_vol3_191113.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "bsn_vol4_191113",
-      "title": "Bsn Vol4 191113",
-      "file": "bsn_vol4_191113.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "bsn_vol5_191113",
-      "title": "Bsn Vol5 191113",
-      "file": "bsn_vol5_191113.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "bsn_vol6_191113",
-      "title": "Bsn Vol6 191113",
-      "file": "bsn_vol6_191113.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "calv_latin",
-      "title": "Calv Latin",
-      "file": "calv_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "canons_latin",
-      "title": "Canons Latin",
-      "file": "canons_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "charity_latin",
-      "title": "Charity Latin",
-      "file": "charity_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "cj_latin",
-      "title": "Cj Latin",
-      "file": "cj_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "cl_latin",
-      "title": "Cl Latin",
-      "file": "cl_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "conc_latin",
-      "title": "Conc Latin",
-      "file": "conc_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "conj_latin",
-      "title": "Conj Latin",
-      "file": "conj_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "cons_latin",
-      "title": "Cons Latin",
-      "file": "cons_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "cor_latin",
-      "title": "Cor Latin",
-      "file": "cor_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "dec_latin",
-      "title": "Dec Latin",
-      "file": "dec_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "dlw_latin",
-      "title": "Dlw Latin",
-      "file": "dlw_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "dl_latin",
-      "title": "Dl Latin",
-      "file": "dl_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "dole_introtheologicallatin",
-      "title": "Dole Introtheologicallatin",
-      "file": "dole_introtheologicallatin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "dom_latin",
-      "title": "Dom Latin",
-      "file": "dom_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "dp_latin",
-      "title": "Dp Latin",
-      "file": "dp_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "dw_latin",
-      "title": "Dw Latin",
-      "file": "dw_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ecc_latin",
-      "title": "Ecc Latin",
-      "file": "ecc_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "eu_latin",
-      "title": "Eu Latin",
-      "file": "eu_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "faith_latin",
-      "title": "Faith Latin",
-      "file": "faith_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "gad_latin",
-      "title": "Gad Latin",
-      "file": "gad_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "hh_latin",
-      "title": "Hh Latin",
-      "file": "hh_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "infl_latin",
-      "title": "Infl Latin",
-      "file": "infl_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "isb_latin",
-      "title": "Isb Latin",
-      "file": "isb_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "i_latin",
-      "title": "I Latin",
-      "file": "i_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "just_latin",
-      "title": "Just Latin",
-      "file": "just_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "latin_latin",
-      "title": "Latin Latin",
-      "file": "latin_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "lett_latin",
-      "title": "Lett Latin",
-      "file": "lett_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "life_latin",
-      "title": "Life Latin",
-      "file": "life_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ljp_latin",
-      "title": "Ljp Latin",
-      "file": "ljp_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "lj_latin",
-      "title": "Lj Latin",
-      "file": "lj_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "lord_latin",
-      "title": "Lord Latin",
-      "file": "lord_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "mem_latin",
-      "title": "Mem Latin",
-      "file": "mem_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "mi1_latin",
-      "title": "Mi1 Latin",
-      "file": "mi1_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "mi2_latin",
-      "title": "Mi2 Latin",
-      "file": "mi2_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "mir_latin",
-      "title": "Mir Latin",
-      "file": "mir_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "miscellaneous_works_latin",
-      "title": "Miscellaneous Works Latin",
-      "file": "miscellaneous_works_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
       "id": "nce_heavenandhell_portable",
-      "title": "Nce Heavenandhell Portable",
-      "file": "nce_heavenandhell_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Heavenandhell Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_heavenandhell_portable.json"
     },
     {
       "id": "nce_lastjudgment",
-      "title": "Nce Lastjudgment",
-      "file": "nce_lastjudgment.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Lastjudgment",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_lastjudgment.json"
     },
     {
       "id": "nce_lifefaith_portable",
-      "title": "Nce Lifefaith Portable",
-      "file": "nce_lifefaith_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Lifefaith Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_lifefaith_portable.json"
     },
     {
       "id": "nce_newjerusalem_portable",
-      "title": "Nce Newjerusalem Portable",
-      "file": "nce_newjerusalem_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Newjerusalem Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_newjerusalem_portable.json"
     },
     {
       "id": "nce_otherplanets",
-      "title": "Nce Otherplanets",
-      "file": "nce_otherplanets.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Otherplanets",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_otherplanets.json"
     },
     {
       "id": "nce_sacredscripturewhitehorse_portable_2ndprinting",
-      "title": "Nce Sacredscripturewhitehorse Portable 2Ndprinting",
-      "file": "nce_sacredscripturewhitehorse_portable_2ndprinting.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Sacredscripturewhitehorse Portable 2Ndprinting",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_sacredscripturewhitehorse_portable_2ndprinting.json"
     },
     {
       "id": "nce_secretsofheaven1_portable",
-      "title": "Nce Secretsofheaven1 Portable",
-      "file": "nce_secretsofheaven1_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven1 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven1_portable.json"
     },
     {
       "id": "nce_secretsofheaven2_portable",
-      "title": "Nce Secretsofheaven2 Portable",
-      "file": "nce_secretsofheaven2_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven2 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven2_portable.json"
     },
     {
       "id": "nce_secretsofheaven3_portable",
-      "title": "Nce Secretsofheaven3 Portable",
-      "file": "nce_secretsofheaven3_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven3 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven3_portable.json"
     },
     {
       "id": "nce_secretsofheaven4_portable",
-      "title": "Nce Secretsofheaven4 Portable",
-      "file": "nce_secretsofheaven4_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven4 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven4_portable.json"
     },
     {
       "id": "nce_secretsofheaven5_portable",
-      "title": "Nce Secretsofheaven5 Portable",
-      "file": "nce_secretsofheaven5_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven5 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven5_portable.json"
     },
     {
       "id": "nce_secretsofheaven6_portable",
-      "title": "Nce Secretsofheaven6 Portable",
-      "file": "nce_secretsofheaven6_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven6 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven6_portable.json"
     },
     {
       "id": "nce_secretsofheaven7_portable",
-      "title": "Nce Secretsofheaven7 Portable",
-      "file": "nce_secretsofheaven7_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven7 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven7_portable.json"
     },
     {
       "id": "nce_secretsofheaven8_portable",
-      "title": "Nce Secretsofheaven8 Portable",
-      "file": "nce_secretsofheaven8_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven8 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven8_portable.json"
     },
     {
       "id": "nce_secretsofheaven9_portable",
-      "title": "Nce Secretsofheaven9 Portable",
-      "file": "nce_secretsofheaven9_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Secretsofheaven9 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven9_portable.json"
     },
     {
-      "id": "nce_surveysoul_bodyinteraction_portable",
-      "title": "Nce Surveysoul Bodyinteraction Portable",
-      "file": "nce_surveysoul_bodyinteraction_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "id": "nce_surveysoulbodyinteraction_portable",
+      "title": "Surveysoul Bodyinteraction Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_surveysoulbodyinteraction_portable.json"
     },
     {
       "id": "nce_thelord_portable",
-      "title": "Nce Thelord Portable",
-      "file": "nce_thelord_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Thelord Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_thelord_portable.json"
     },
     {
       "id": "nce_truechristianity1_portable",
-      "title": "Nce Truechristianity1 Portable",
-      "file": "nce_truechristianity1_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Truechristianity1 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_truechristianity1_portable.json"
     },
     {
       "id": "nce_truechristianity2_portable",
-      "title": "Nce Truechristianity2 Portable",
-      "file": "nce_truechristianity2_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "njhd_latin",
-      "title": "Njhd Latin",
-      "file": "njhd_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "od_whentragedystrikes",
-      "title": "Od Whentragedystrikes",
-      "file": "od_whentragedystrikes.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "pent_latin",
-      "title": "Pent Latin",
-      "file": "pent_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "posthumous_works_latin",
-      "title": "Posthumous Works Latin",
-      "file": "posthumous_works_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "pp_latin",
-      "title": "Pp Latin",
-      "file": "pp_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sav_latin",
-      "title": "Sav Latin",
-      "file": "sav_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sc_latin",
-      "title": "Sc Latin",
-      "file": "sc_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sem_latin",
-      "title": "Sem Latin",
-      "file": "sem_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sewe_latin",
-      "title": "Sewe Latin",
-      "file": "sewe_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_livesofangels",
-      "title": "Sf Livesofangels",
-      "file": "sf_livesofangels.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_afterlife",
-      "title": "Sf Afterlife",
-      "file": "sf_afterlife.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_compendium_warren",
-      "title": "Sf Compendium Warren",
-      "file": "sf_compendium_warren.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_cr_eternalwellness",
-      "title": "Sf Cr Eternalwellness",
-      "file": "sf_cr_eternalwellness.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_cr_imaginethat",
-      "title": "Sf Cr Imaginethat",
-      "file": "sf_cr_imaginethat.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_cr_passages",
-      "title": "Sf Cr Passages",
-      "file": "sf_cr_passages.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_epicoftheafterlife_lagercrantz",
-      "title": "Sf Epicoftheafterlife Lagercrantz",
-      "file": "sf_epicoftheafterlife_lagercrantz.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_florschutz_swedenborgkant",
-      "title": "Sf Florschutz Swedenborgkant",
-      "file": "sf_florschutz_swedenborgkant.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_groll_newparadigmscience",
-      "title": "Sf Groll Newparadigmscience",
-      "file": "sf_groll_newparadigmscience.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_jonsson_visionaryscientist",
-      "title": "Sf Jonsson Visionaryscientist",
-      "file": "sf_jonsson_visionaryscientist.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_lamm_developmentofthought",
-      "title": "Sf Lamm Developmentofthought",
-      "file": "sf_lamm_developmentofthought.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_ourlifeafterdeath",
-      "title": "Sf Ourlifeafterdeath",
-      "file": "sf_ourlifeafterdeath.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_overcomingdivisiveness",
-      "title": "Sf Overcomingdivisiveness",
-      "file": "sf_overcomingdivisiveness.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_regeneration",
-      "title": "Sf Regeneration",
-      "file": "sf_regeneration.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_scientistexploresspirit",
-      "title": "Sf Scientistexploresspirit",
-      "file": "sf_scientistexploresspirit.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_skinner_roses",
-      "title": "Sf Skinner Roses",
-      "file": "sf_skinner_roses.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_thoughtfulsoul",
-      "title": "Sf Thoughtfulsoul",
-      "file": "sf_thoughtfulsoul.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_toksvig_scientistmystic",
-      "title": "Sf Toksvig Scientistmystic",
-      "file": "sf_toksvig_scientistmystic.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sf_woofenden_explorersguidebook",
-      "title": "Sf Woofenden Explorersguidebook",
-      "file": "sf_woofenden_explorersguidebook.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "spec_latin",
-      "title": "Spec Latin",
-      "file": "spec_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "ss_latin",
-      "title": "Ss Latin",
-      "file": "ss_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "sumap_latin",
-      "title": "Sumap Latin",
-      "file": "sumap_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Truechristianity2 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_truechristianity2_portable.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_explained_01",
-      "title": "Swedenborg Foundation Apocalypse Explained 01",
-      "file": "swedenborg_foundation_apocalypse_explained_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Explained",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_01.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_explained_02",
-      "title": "Swedenborg Foundation Apocalypse Explained 02",
-      "file": "swedenborg_foundation_apocalypse_explained_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Explained",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_02.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_explained_03",
-      "title": "Swedenborg Foundation Apocalypse Explained 03",
-      "file": "swedenborg_foundation_apocalypse_explained_03.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Explained",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_03.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_explained_04",
-      "title": "Swedenborg Foundation Apocalypse Explained 04",
-      "file": "swedenborg_foundation_apocalypse_explained_04.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Explained",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_04.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_explained_05",
-      "title": "Swedenborg Foundation Apocalypse Explained 05",
-      "file": "swedenborg_foundation_apocalypse_explained_05.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Explained",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_05.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_explained_06",
-      "title": "Swedenborg Foundation Apocalypse Explained 06",
-      "file": "swedenborg_foundation_apocalypse_explained_06.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Explained",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_06.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_revealed_01",
-      "title": "Swedenborg Foundation Apocalypse Revealed 01",
-      "file": "swedenborg_foundation_apocalypse_revealed_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Revealed",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_revealed_01.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_revealed_02",
-      "title": "Swedenborg Foundation Apocalypse Revealed 02",
-      "file": "swedenborg_foundation_apocalypse_revealed_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Apocalypse Revealed",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_revealed_02.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_revealed_02pdf",
       "title": "Swedenborg Foundation Apocalypse Revealed 02.Pdf",
-      "file": "swedenborg_foundation_apocalypse_revealed_02pdf.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_revealed_02pdf.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_01",
-      "title": "Swedenborg Foundation Arcana Coelestia 01",
-      "file": "swedenborg_foundation_arcana_coelestia_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_01.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_02",
-      "title": "Swedenborg Foundation Arcana Coelestia 02",
-      "file": "swedenborg_foundation_arcana_coelestia_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_02.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_03",
-      "title": "Swedenborg Foundation Arcana Coelestia 03",
-      "file": "swedenborg_foundation_arcana_coelestia_03.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_03.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_04",
-      "title": "Swedenborg Foundation Arcana Coelestia 04",
-      "file": "swedenborg_foundation_arcana_coelestia_04.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_04.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_05",
-      "title": "Swedenborg Foundation Arcana Coelestia 05",
-      "file": "swedenborg_foundation_arcana_coelestia_05.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_05.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_06",
-      "title": "Swedenborg Foundation Arcana Coelestia 06",
-      "file": "swedenborg_foundation_arcana_coelestia_06.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_06.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_07",
-      "title": "Swedenborg Foundation Arcana Coelestia 07",
-      "file": "swedenborg_foundation_arcana_coelestia_07.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_07.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_08",
-      "title": "Swedenborg Foundation Arcana Coelestia 08",
-      "file": "swedenborg_foundation_arcana_coelestia_08.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_08.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_09",
-      "title": "Swedenborg Foundation Arcana Coelestia 09",
-      "file": "swedenborg_foundation_arcana_coelestia_09.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_09.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_10",
-      "title": "Swedenborg Foundation Arcana Coelestia 10",
-      "file": "swedenborg_foundation_arcana_coelestia_10.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_10.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_11",
-      "title": "Swedenborg Foundation Arcana Coelestia 11",
-      "file": "swedenborg_foundation_arcana_coelestia_11.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_11.json"
     },
     {
       "id": "swedenborg_foundation_arcana_coelestia_12",
-      "title": "Swedenborg Foundation Arcana Coelestia 12",
-      "file": "swedenborg_foundation_arcana_coelestia_12.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Arcana Coelestia",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_12.json"
     },
     {
       "id": "swedenborg_foundation_brief_exposition",
       "title": "Swedenborg Foundation Brief Exposition",
-      "file": "swedenborg_foundation_brief_exposition.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_brief_exposition.json"
     },
     {
       "id": "swedenborg_foundation_conjugial_love",
       "title": "Swedenborg Foundation Conjugial Love",
-      "file": "swedenborg_foundation_conjugial_love.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_conjugial_love.json"
     },
     {
       "id": "swedenborg_foundation_continuation_on_last_judgment",
       "title": "Swedenborg Foundation Continuation On Last Judgment",
-      "file": "swedenborg_foundation_continuation_on_last_judgment.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_continuation_on_last_judgment.json"
     },
     {
       "id": "swedenborg_foundation_divine_love_and_wisdom",
       "title": "Swedenborg Foundation Divine Love And Wisdom",
-      "file": "swedenborg_foundation_divine_love_and_wisdom.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_divine_love_and_wisdom.json"
     },
     {
       "id": "swedenborg_foundation_divine_providence",
       "title": "Swedenborg Foundation Divine Providence",
-      "file": "swedenborg_foundation_divine_providence.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_divine_providence.json"
     },
     {
       "id": "swedenborg_foundation_earths_in_the_universe",
       "title": "Swedenborg Foundation Earths In The Universe",
-      "file": "swedenborg_foundation_earths_in_the_universe.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_earths_in_the_universe.json"
     },
     {
       "id": "swedenborg_foundation_four_doctrines",
       "title": "Swedenborg Foundation Four Doctrines",
-      "file": "swedenborg_foundation_four_doctrines.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_four_doctrines.json"
     },
     {
       "id": "swedenborg_foundation_heaven_and_hell",
       "title": "Swedenborg Foundation Heaven And Hell",
-      "file": "swedenborg_foundation_heaven_and_hell.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_heaven_and_hell.json"
     },
     {
       "id": "swedenborg_foundation_interaction_of_soul_and_body",
       "title": "Swedenborg Foundation Interaction Of Soul And Body",
-      "file": "swedenborg_foundation_interaction_of_soul_and_body.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_interaction_of_soul_and_body.json"
     },
     {
       "id": "swedenborg_foundation_last_judgment",
       "title": "Swedenborg Foundation Last Judgment",
-      "file": "swedenborg_foundation_last_judgment.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_last_judgment.json"
     },
     {
       "id": "swedenborg_foundation_misc_theological_works",
       "title": "Swedenborg Foundation Misc Theological Works",
-      "file": "swedenborg_foundation_misc_theological_works.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_misc_theological_works.json"
     },
     {
       "id": "swedenborg_foundation_new_jerusalem",
       "title": "Swedenborg Foundation New Jerusalem",
-      "file": "swedenborg_foundation_new_jerusalem.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_new_jerusalem.json"
     },
     {
       "id": "swedenborg_foundation_posthumous_theological_works_01",
-      "title": "Swedenborg Foundation Posthumous Theological Works 01",
-      "file": "swedenborg_foundation_posthumous_theological_works_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Posthumous Theological Works",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_posthumous_theological_works_01.json"
     },
     {
       "id": "swedenborg_foundation_posthumous_theological_works_volume_2",
-      "title": "Swedenborg Foundation Posthumous Theological Works Volume 2",
-      "file": "swedenborg_foundation_posthumous_theological_works_volume_2.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation Posthumous Theological Works Volume",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_posthumous_theological_works_volume_2.json"
     },
     {
       "id": "swedenborg_foundation_true_christian_religion_01",
-      "title": "Swedenborg Foundation True Christian Religion 01",
-      "file": "swedenborg_foundation_true_christian_religion_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation True Christian Religion",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_true_christian_religion_01.json"
     },
     {
       "id": "swedenborg_foundation_true_christian_religion_02",
-      "title": "Swedenborg Foundation True Christian Religion 02",
-      "file": "swedenborg_foundation_true_christian_religion_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "title": "Swedenborg Foundation True Christian Religion",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_true_christian_religion_02.json"
     },
     {
       "id": "swedenborg_foundation_white_horse",
       "title": "Swedenborg Foundation White Horse",
-      "file": "swedenborg_foundation_white_horse.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "tcradd_latin",
-      "title": "Tcradd Latin",
-      "file": "tcradd_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "tcr_latin",
-      "title": "Tcr Latin",
-      "file": "tcr_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "translations_latin",
-      "title": "Translations Latin",
-      "file": "translations_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "vandusen_designofexistence",
-      "title": "Vandusen Designofexistence",
-      "file": "vandusen_designofexistence.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "verbo_latin",
-      "title": "Verbo Latin",
-      "file": "verbo_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "whapp_latin",
-      "title": "Whapp Latin",
-      "file": "whapp_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "wh_latin",
-      "title": "Wh Latin",
-      "file": "wh_latin.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_heavenandhell_portable",
-      "title": "Nce Heavenandhell Portable",
-      "file": "nce_heavenandhell_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_lastjudgment",
-      "title": "Nce Lastjudgment",
-      "file": "nce_lastjudgment.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_lifefaith_portable",
-      "title": "Nce Lifefaith Portable",
-      "file": "nce_lifefaith_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_newjerusalem_portable",
-      "title": "Nce Newjerusalem Portable",
-      "file": "nce_newjerusalem_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_otherplanets",
-      "title": "Nce Otherplanets",
-      "file": "nce_otherplanets.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_sacredscripturewhitehorse_portable_2ndprinting",
-      "title": "Nce Sacredscripturewhitehorse Portable 2Ndprinting",
-      "file": "nce_sacredscripturewhitehorse_portable_2ndprinting.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven1_portable",
-      "title": "Nce Secretsofheaven1 Portable",
-      "file": "nce_secretsofheaven1_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven2_portable",
-      "title": "Nce Secretsofheaven2 Portable",
-      "file": "nce_secretsofheaven2_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven3_portable",
-      "title": "Nce Secretsofheaven3 Portable",
-      "file": "nce_secretsofheaven3_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven4_portable",
-      "title": "Nce Secretsofheaven4 Portable",
-      "file": "nce_secretsofheaven4_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven5_portable",
-      "title": "Nce Secretsofheaven5 Portable",
-      "file": "nce_secretsofheaven5_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven6_portable",
-      "title": "Nce Secretsofheaven6 Portable",
-      "file": "nce_secretsofheaven6_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven7_portable",
-      "title": "Nce Secretsofheaven7 Portable",
-      "file": "nce_secretsofheaven7_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven8_portable",
-      "title": "Nce Secretsofheaven8 Portable",
-      "file": "nce_secretsofheaven8_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_secretsofheaven9_portable",
-      "title": "Nce Secretsofheaven9 Portable",
-      "file": "nce_secretsofheaven9_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_surveysoul_bodyinteraction_portable",
-      "title": "Nce Surveysoul Bodyinteraction Portable",
-      "file": "nce_surveysoul_bodyinteraction_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_thelord_portable",
-      "title": "Nce Thelord Portable",
-      "file": "nce_thelord_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_truechristianity1_portable",
-      "title": "Nce Truechristianity1 Portable",
-      "file": "nce_truechristianity1_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "nce_truechristianity2_portable",
-      "title": "Nce Truechristianity2 Portable",
-      "file": "nce_truechristianity2_portable.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_01",
-      "title": "Swedenborg Foundation Apocalypse Explained 01",
-      "file": "swedenborg_foundation_apocalypse_explained_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_02",
-      "title": "Swedenborg Foundation Apocalypse Explained 02",
-      "file": "swedenborg_foundation_apocalypse_explained_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_03",
-      "title": "Swedenborg Foundation Apocalypse Explained 03",
-      "file": "swedenborg_foundation_apocalypse_explained_03.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_04",
-      "title": "Swedenborg Foundation Apocalypse Explained 04",
-      "file": "swedenborg_foundation_apocalypse_explained_04.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_05",
-      "title": "Swedenborg Foundation Apocalypse Explained 05",
-      "file": "swedenborg_foundation_apocalypse_explained_05.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_06",
-      "title": "Swedenborg Foundation Apocalypse Explained 06",
-      "file": "swedenborg_foundation_apocalypse_explained_06.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_revealed_01",
-      "title": "Swedenborg Foundation Apocalypse Revealed 01",
-      "file": "swedenborg_foundation_apocalypse_revealed_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_revealed_02",
-      "title": "Swedenborg Foundation Apocalypse Revealed 02",
-      "file": "swedenborg_foundation_apocalypse_revealed_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_revealed_02pdf",
-      "title": "Swedenborg Foundation Apocalypse Revealed 02.Pdf",
-      "file": "swedenborg_foundation_apocalypse_revealed_02pdf.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_01",
-      "title": "Swedenborg Foundation Arcana Coelestia 01",
-      "file": "swedenborg_foundation_arcana_coelestia_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_02",
-      "title": "Swedenborg Foundation Arcana Coelestia 02",
-      "file": "swedenborg_foundation_arcana_coelestia_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_03",
-      "title": "Swedenborg Foundation Arcana Coelestia 03",
-      "file": "swedenborg_foundation_arcana_coelestia_03.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_04",
-      "title": "Swedenborg Foundation Arcana Coelestia 04",
-      "file": "swedenborg_foundation_arcana_coelestia_04.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_05",
-      "title": "Swedenborg Foundation Arcana Coelestia 05",
-      "file": "swedenborg_foundation_arcana_coelestia_05.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_06",
-      "title": "Swedenborg Foundation Arcana Coelestia 06",
-      "file": "swedenborg_foundation_arcana_coelestia_06.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_07",
-      "title": "Swedenborg Foundation Arcana Coelestia 07",
-      "file": "swedenborg_foundation_arcana_coelestia_07.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_08",
-      "title": "Swedenborg Foundation Arcana Coelestia 08",
-      "file": "swedenborg_foundation_arcana_coelestia_08.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_09",
-      "title": "Swedenborg Foundation Arcana Coelestia 09",
-      "file": "swedenborg_foundation_arcana_coelestia_09.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_10",
-      "title": "Swedenborg Foundation Arcana Coelestia 10",
-      "file": "swedenborg_foundation_arcana_coelestia_10.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_11",
-      "title": "Swedenborg Foundation Arcana Coelestia 11",
-      "file": "swedenborg_foundation_arcana_coelestia_11.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_12",
-      "title": "Swedenborg Foundation Arcana Coelestia 12",
-      "file": "swedenborg_foundation_arcana_coelestia_12.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_brief_exposition",
-      "title": "Swedenborg Foundation Brief Exposition",
-      "file": "swedenborg_foundation_brief_exposition.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_conjugial_love",
-      "title": "Swedenborg Foundation Conjugial Love",
-      "file": "swedenborg_foundation_conjugial_love.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_continuation_on_last_judgment",
-      "title": "Swedenborg Foundation Continuation On Last Judgment",
-      "file": "swedenborg_foundation_continuation_on_last_judgment.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_divine_love_and_wisdom",
-      "title": "Swedenborg Foundation Divine Love And Wisdom",
-      "file": "swedenborg_foundation_divine_love_and_wisdom.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_divine_providence",
-      "title": "Swedenborg Foundation Divine Providence",
-      "file": "swedenborg_foundation_divine_providence.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_earths_in_the_universe",
-      "title": "Swedenborg Foundation Earths In The Universe",
-      "file": "swedenborg_foundation_earths_in_the_universe.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_four_doctrines",
-      "title": "Swedenborg Foundation Four Doctrines",
-      "file": "swedenborg_foundation_four_doctrines.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_heaven_and_hell",
-      "title": "Swedenborg Foundation Heaven And Hell",
-      "file": "swedenborg_foundation_heaven_and_hell.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_interaction_of_soul_and_body",
-      "title": "Swedenborg Foundation Interaction Of Soul And Body",
-      "file": "swedenborg_foundation_interaction_of_soul_and_body.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_last_judgment",
-      "title": "Swedenborg Foundation Last Judgment",
-      "file": "swedenborg_foundation_last_judgment.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_misc_theological_works",
-      "title": "Swedenborg Foundation Misc Theological Works",
-      "file": "swedenborg_foundation_misc_theological_works.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_new_jerusalem",
-      "title": "Swedenborg Foundation New Jerusalem",
-      "file": "swedenborg_foundation_new_jerusalem.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_posthumous_theological_works_01",
-      "title": "Swedenborg Foundation Posthumous Theological Works 01",
-      "file": "swedenborg_foundation_posthumous_theological_works_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_posthumous_theological_works_volume_2",
-      "title": "Swedenborg Foundation Posthumous Theological Works Volume 2",
-      "file": "swedenborg_foundation_posthumous_theological_works_volume_2.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_true_christian_religion_01",
-      "title": "Swedenborg Foundation True Christian Religion 01",
-      "file": "swedenborg_foundation_true_christian_religion_01.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_true_christian_religion_02",
-      "title": "Swedenborg Foundation True Christian Religion 02",
-      "file": "swedenborg_foundation_true_christian_religion_02.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
-    },
-    {
-      "id": "swedenborg_foundation_white_horse",
-      "title": "Swedenborg Foundation White Horse",
-      "file": "swedenborg_foundation_white_horse.json",
-      "author": "Unknown",
-      "language": "Unknown",
-      "type": "Uncategorized"
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_white_horse.json"
     }
   ]
 }

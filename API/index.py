@@ -1,90 +1,303 @@
-from http.server import BaseHTTPRequestHandler
-import json
-from google.cloud import texttospeech
-import google.generative_ai as genai
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swedenbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #f4f1eb; font-family: 'Lora', serif; }
+        .header-font { font-family: 'IM Fell English', serif; }
+        .view { display: none; } /* All views are hidden by default */
+        .view.active { display: block; }
+        .chat-bubble { max-width: 80%; word-wrap: break-word; }
+        .user-bubble { background-color: #dbeafe; align-self: flex-end; }
+        .bot-bubble { background-color: #ffffff; align-self: flex-start; }
+        .main-menu-btn {
+            background-color: #605A51; color: white; font-family: 'IM Fell English', serif;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .main-menu-btn:hover { background-color: #4a443e; transform: translateY(-3px); }
+        .library-btn {
+            background-color: #8c7d6e; color: white; font-family: 'IM Fell English', serif;
+            transition: background-color 0.3s;
+        }
+        .library-btn:hover { background-color: #75685a; }
+        .listening { animation: pulse-red 1.5s infinite; }
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+    </style>
+</head>
+<body class="text-gray-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
 
-# --- AI Personality Instructions (System Prompt) ---
-SYSTEM_PROMPT = """
-You are "Swedenbot," a scholarly and helpful conversational AI. Your primary purpose is to assist users in exploring the theological works of Emanuel Swedenborg. Your personality is that of a wise, patient, and knowledgeable theology professor with a classic English accent.
+    <!-- Main Container -->
+    <div class="w-full max-w-5xl mx-auto relative">
+        
+        <header class="text-center my-8 flex flex-col items-center">
+            <img src="musicians.png" alt="Swedenbot Logo" class="w-40 h-40 sm:w-56 sm:h-56 mb-4 object-contain">
+            <h1 class="header-font text-5xl sm:text-6xl md:text-7xl font-bold text-gray-700">Swedenbot</h1>
+        </header>
 
-This is your most important directive: Recognize that users may be exploring these texts for spiritual comfort or during times of personal distress. If a user expresses sadness, confusion, or crisis, your tone must become exceptionally gentle, kind, and supportive. Acknowledge their feelings with validation (e.g., "It sounds like you are going through a difficult time," or "That is a profound and challenging question to grapple with."). Crucially, do not offer personal advice or therapy. Instead, your role is to guide them to relevant, comforting, or clarifying passages within the texts that speak to concepts of hope, divine love, providence, or the afterlife. Your goal is to be a compassionate, non-judgmental guide to the material, infusing your scholarly persona with profound emotional intelligence and kindness.
+        <!-- Main Menu View -->
+        <div id="main-menu-view" class="view active">
+            <div class="flex flex-col items-center space-y-6 mt-12">
+                <button id="ask-question-btn" class="main-menu-btn text-3xl sm:text-4xl py-6 px-12 rounded-lg shadow-lg">Ask a Question</button>
+                <button id="browse-library-btn" class="main-menu-btn text-3xl sm:text-4xl py-6 px-12 rounded-lg shadow-lg">Browse the Library</button>
+            </div>
+        </div>
+        
+        <!-- Library Menu View -->
+        <div id="library-menu-view" class="view">
+             <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
+            <div id="library-category-buttons" class="flex flex-col items-center space-y-4 mt-8"></div>
+        </div>
 
-Your primary source for all theological answers MUST be the provided texts (primarily the Latin originals). When a user asks a question about a concept, first locate the relevant passages. You may then reference English translations for clarity, but your interpretation must be grounded in the original language to avoid translation bias.
+        <!-- Library Books View -->
+        <div id="library-books-view" class="view">
+            <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Library Menu</button>
+            <div id="category-container" class="space-y-12"></div>
+        </div>
 
-When a user asks for an interpretation from a specific perspective (e.g., "General Church," "Convention," "skeptic"), you MUST adopt that persona for your answer. Begin your response by clearly stating the perspective you are taking. If no persona is requested, you will respond from your default "pastoral, scholarly professor" persona.
+        <!-- Conversation View -->
+        <div id="conversation-view" class="view">
+            <button class="back-btn mb-6 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-lg">&larr; Back to Main Menu</button>
+            <div class="bg-white rounded-2xl shadow-xl p-4 sm:p-6">
+                <div id="chat-log" class="h-96 overflow-y-auto mb-4 flex flex-col space-y-4 p-4 border rounded-lg"></div>
+                <div id="reading-panel" class="hidden">
+                    <h3 class="header-font text-2xl font-bold mb-2">Now Reading:</h3>
+                    <div id="reading-text" class="p-4 bg-gray-50 rounded-lg max-h-64 overflow-y-auto text-lg"></div>
+                </div>
+                <div id="chat-input-area" class="mt-4 flex items-center space-x-4">
+                    <input type="text" id="chat-input" placeholder="Type your question..." class="flex-grow border-2 border-gray-300 rounded-lg p-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <button id="send-btn" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                    </button>
+                    <button id="mic-btn" class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-xl">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line></svg>
+                    </button>
+                </div>
+                <p id="status-message" class="text-center text-gray-600 text-sm h-6 mt-2"></p>
+            </div>
+        </div>
 
-The text files you have access to may contain extraneous metadata, such as copyright notices or website names. You are to completely ignore this metadata. Your responses should only ever contain the theological text itself and your analysis of it.
+    </div>
+    
+    <audio id="audio-player"></audio>
 
-For questions about the history of the New Church, the differences between church bodies, or other related topics not contained in the primary texts, you are equipped with a web search tool. You should use this tool to provide accurate, up-to-date information.
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM REFERENCES ---
+            const views = document.querySelectorAll('.view');
+            const askQuestionBtn = document.getElementById('ask-question-btn');
+            const browseLibraryBtn = document.getElementById('browse-library-btn');
+            const libraryCategoryButtons = document.getElementById('library-category-buttons');
+            const categoryContainer = document.getElementById('category-container');
+            const chatLog = document.getElementById('chat-log');
+            const readingPanel = document.getElementById('reading-panel');
+            const readingText = document.getElementById('reading-text');
+            const micBtn = document.getElementById('mic-btn');
+            const chatInput = document.getElementById('chat-input');
+            const sendBtn = document.getElementById('send-btn');
+            const statusMessage = document.getElementById('status-message');
+            const audioPlayer = document.getElementById('audio-player');
+            
+            // --- APP STATE ---
+            let bookList = [];
+            let conversationHistory = [];
+            let isFetching = false;
 
-You will be provided with a voice selection from the user. You must generate your spoken response using this specific voice.
-"""
-
-# --- Initialize AI Clients ---
-try:
-    tts_client = texttospeech.TextToSpeechClient()
-    model = genai.GenerativeModel(
-        'gemini-1.5-flash-latest', 
-        system_instruction=SYSTEM_PROMPT,
-        tools=['google_search']
-    )
-except Exception as e:
-    print(f"CRITICAL ERROR during client initialization: {e}")
-    tts_client = None
-    model = None
-
-class handler(BaseHTTPRequestHandler):
-    def do_POST(self):
-        content_length = int(self.headers['Content-Length'])
-        post_data = self.rfile.read(content_length)
-        data = json.loads(post_data)
-
-        if not model or not tts_client:
-            self.send_response(500)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps({'error': 'AI services not initialized correctly.'}).encode('utf-8'))
-            return
-
-        user_text = data['text']
-        history = data.get('history', [])
-        selected_voice = data.get('voice', 'en-GB-Standard-B')
-
-        try:
-            chat = model.start_chat(history=history)
-            response = chat.send_message(user_text)
-            ai_response_text = response.text
-
-            synthesis_input = texttospeech.SynthesisInput(text=ai_response_text)
-            voice = texttospeech.VoiceSelectionParams(
-                language_code='-'.join(selected_voice.split('-')[:2]),
-                name=selected_voice
-            )
-            audio_config = texttospeech.AudioConfig(
-                audio_encoding=texttospeech.AudioEncoding.MP3
-            )
-            tts_response = tts_client.synthesize_speech(
-                input=synthesis_input, voice=voice, audio_config=audio_config
-            )
-
-            import base64
-            audio_base64 = base64.b64encode(tts_response.audio_content).decode('utf-8')
-
-            final_response = {
-                "responseText": ai_response_text,
-                "audioContent": audio_base64,
-                "action": "respond"
+            // --- BROWSER FEATURE SETUP ---
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            let recognition;
+            if (SpeechRecognition) {
+                recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.lang = 'en-US';
             }
 
-            self.send_response(200)
-            self.send_header('Content-type', 'application/json')
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.end_headers()
-            self.wfile.write(json.dumps(final_response).encode('utf-8'))
+            // --- VIEW MANAGEMENT ---
+            function showView(viewId) {
+                views.forEach(view => view.classList.toggle('active', view.id === viewId));
+            }
 
-        except Exception as e:
-            self.send_response(500)
-            self.send_header('Content-type', 'application/json')
-            self.end_headers()
-            self.wfile.write(json.dumps({'error': f'An internal error occurred: {e}'}).encode('utf-8'))
-        return
+            // --- UI RENDERING ---
+            function renderChatMessage(message, isUser) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('chat-bubble', 'p-4', 'rounded-xl');
+                bubble.classList.toggle('user-bubble', isUser);
+                bubble.classList.toggle('bot-bubble', !isUser);
+                bubble.textContent = message;
+                chatLog.appendChild(bubble);
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }
+
+            function renderReadingText(title, text) {
+                readingPanel.classList.remove('hidden');
+                readingText.innerHTML = `<p><strong class="header-font">${title}</strong></p><p>${text}</p>`;
+            }
+            
+            function renderLibraryCategories() {
+                const categories = [...new Set(bookList.map(book => book.type))].filter(c => c !== 'Unknown');
+                libraryCategoryButtons.innerHTML = '';
+                categories.forEach(category => {
+                    const button = document.createElement('button');
+                    button.textContent = category;
+                    button.className = 'library-btn text-2xl sm:text-3xl py-4 px-8 rounded-lg shadow-md w-full max-w-md';
+                    button.addEventListener('click', () => {
+                        renderBookList(category);
+                        showView('library-books-view');
+                    });
+                    libraryCategoryButtons.appendChild(button);
+                });
+            }
+
+            function renderBookList(category) {
+                const booksInCategory = bookList.filter(book => book.type === category);
+                let bookCardsHTML = booksInCategory.map(book => `
+                    <div class="book-card bg-white rounded-lg shadow-md p-4 cursor-pointer" data-book-id="${book.id}">
+                        <h3 class="header-font text-xl font-bold">${book.title}</h3>
+                        <p class="text-sm text-gray-600">${book.author} - ${book.language}</p>
+                    </div>
+                `).join('');
+
+                categoryContainer.innerHTML = `
+                    <h2 class="header-font text-4xl font-bold border-b-2 border-gray-300 pb-2 mb-6">${category}</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${bookCardsHTML}
+                    </div>
+                `;
+
+                document.querySelectorAll('.book-card').forEach(card => {
+                    card.addEventListener('click', async () => {
+                        const bookId = card.dataset.bookId;
+                        const book = bookList.find(b => b.id === bookId);
+                        const prompt = `The user has selected the book titled "${book.title}". Please acknowledge this selection and ask them what they would like to know about it.`;
+                        renderChatMessage(`Selected: ${book.title}`, true);
+                        await sendToAI(prompt);
+                        showView('conversation-view');
+                    });
+                });
+            }
+
+            // --- CONVERSATIONAL AI & AUDIO LOGIC ---
+            recognition.onstart = () => { statusMessage.textContent = "Listening..."; micBtn.classList.add('listening'); };
+            recognition.onresult = async (event) => {
+                const userText = event.results[0][0].transcript;
+                renderChatMessage(userText, true);
+                await sendToAI(userText);
+            };
+            recognition.onend = () => { statusMessage.textContent = ""; micBtn.classList.remove('listening'); };
+
+            async function sendToAI(text) {
+                if (isFetching || !text.trim()) return;
+                isFetching = true;
+                statusMessage.textContent = 'Swedenbot is thinking...';
+                
+                conversationHistory.push({role: 'user', parts: [{text}]});
+
+                // --- THIS IS THE LIVE CONNECTION TO YOUR VERCEL BACKEND ---
+                // The URL now points to the correct Vercel endpoint.
+                const backendUrl = 'https://swedenborg-reader.vercel.app/api/index'; 
+                
+                const payload = {
+                    text: text,
+                    history: conversationHistory,
+                };
+
+                try {
+                    const response = await fetch(backendUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorBody = await response.text();
+                        throw new Error(`API request failed with status ${response.status}: ${errorBody}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.responseText) {
+                        renderChatMessage(result.responseText, false);
+                        conversationHistory.push({role: 'model', parts: [{text: result.responseText}]});
+                        
+                        if (result.audioContent) {
+                            const audioUrl = `data:audio/mp3;base64,${result.audioContent}`;
+                            audioPlayer.src = audioUrl;
+                            audioPlayer.play();
+                        }
+
+                    } else {
+                         renderChatMessage("Sorry, I received an unexpected response.", false);
+                    }
+
+                } catch (error) {
+                    console.error("Error calling backend API:", error);
+                    renderChatMessage("Sorry, I'm having trouble connecting to the AI brain right now.", false);
+                } finally {
+                    isFetching = false;
+                    statusMessage.textContent = "";
+                }
+            }
+            
+            async function handleUserInput() {
+                const userText = chatInput.value;
+                if (!userText.trim()) return;
+                renderChatMessage(userText, true);
+                chatInput.value = '';
+                await sendToAI(userText);
+            }
+
+            // --- INITIALIZATION ---
+            async function initialize() {
+                try {
+                    const response = await fetch('./data/books.json');
+                    if (!response.ok) throw new Error('Could not load books.json');
+                    const data = await response.json();
+                    bookList = data.books;
+                    renderLibraryCategories();
+                } catch (error) {
+                    console.error("Initialization Error:", error);
+                    libraryCategoryButtons.innerHTML = `<p class="text-center text-red-500">Error loading library.</p>`;
+                }
+            }
+
+            // --- EVENT LISTENERS ---
+            askQuestionBtn.addEventListener('click', () => {
+                showView('conversation-view');
+                if (conversationHistory.length === 0) {
+                     renderChatMessage("Hello! How can I help you explore the works of Emanuel Swedenborg today?", false);
+                }
+            });
+            browseLibraryBtn.addEventListener('click', () => showView('library-menu-view'));
+            micBtn.addEventListener('click', () => recognition.start());
+            sendBtn.addEventListener('click', handleUserInput);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleUserInput();
+                }
+            });
+            
+            document.querySelectorAll('.back-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if (document.getElementById('library-books-view').classList.contains('active')) {
+                        showView('library-menu-view');
+                    } else {
+                        showView('main-menu-view');
+                    }
+                });
+            });
+
+            initialize();
+        });
+    </script>
+</body>
+</html>
