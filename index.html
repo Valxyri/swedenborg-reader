@@ -213,8 +213,8 @@
                 
                 conversationHistory.push({role: 'user', parts: [{text}]});
 
-                const apiKey = ""; // API key is handled by the environment
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                // --- THIS IS THE LIVE CONNECTION TO YOUR BACKEND ---
+                const backendUrl = 'https://swedenbot-brain-988389391595.us-east4.run.app/aichat';
                 
                 const system_instruction = {
                     role: "system",
@@ -226,7 +226,7 @@
                 };
 
                 try {
-                    const response = await fetch(apiUrl, {
+                    const response = await fetch(backendUrl, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
@@ -239,18 +239,24 @@
 
                     const result = await response.json();
                     
-                    if (result.candidates && result.candidates[0].content && result.candidates[0].content.parts) {
-                        const aiResponseText = result.candidates[0].content.parts[0].text;
-                        renderChatMessage(aiResponseText, false);
-                        conversationHistory.push({role: 'model', parts: [{text: aiResponseText}]});
+                    if (result.responseText) {
+                        renderChatMessage(result.responseText, false);
+                        conversationHistory.push({role: 'model', parts: [{text: result.responseText}]});
+                        
+                        // Play the audio if it exists
+                        if (result.audioContent) {
+                            const audioUrl = `data:audio/mp3;base64,${result.audioContent}`;
+                            audioPlayer.src = audioUrl;
+                            audioPlayer.play();
+                        }
+
                     } else {
-                         renderChatMessage("Sorry, I received an unexpected response from the AI.", false);
-                         console.log("Unexpected API response:", result);
+                         renderChatMessage("Sorry, I received an unexpected response.", false);
                     }
 
                 } catch (error) {
-                    console.error("Error calling Gemini API:", error);
-                    renderChatMessage("Sorry, I'm having trouble connecting right now. This is expected in the preview environment.", false);
+                    console.error("Error calling backend API:", error);
+                    renderChatMessage("Sorry, I'm having trouble connecting to the AI brain right now.", false);
                 } finally {
                     isFetching = false;
                     statusMessage.textContent = "";
