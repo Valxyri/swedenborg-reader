@@ -1,2 +1,6 @@
-google-cloud-texttospeech
-google-generativeai
+Flask==2.3.2
+Flask-Cors==4.0.0
+google-cloud-aiplatform==1.49.0
+google-cloud-texttospeech==2.16.2
+google-generativeai==0.5.4
+gunicorn==22.0.0

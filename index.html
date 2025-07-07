@@ -32,6 +32,8 @@
             70% { box-shadow: 0 0 0 20px rgba(220, 38, 38, 0); }
             100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
         }
+        .book-card { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .book-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
     </style>
 </head>
 <body class="text-gray-800 flex flex-col items-center min-h-screen p-4 sm:p-6">
@@ -111,6 +113,7 @@
             let bookList = [];
             let conversationHistory = [];
             let isFetching = false;
+            let currentBookData = null;
 
             // --- BROWSER FEATURE SETUP ---
             const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -143,17 +146,20 @@
             }
             
             function renderLibraryCategories() {
-                const categories = [...new Set(bookList.map(book => book.type))].filter(c => c !== 'Unknown');
+                const categories = ["New Century Edition", "Standard Edition", "Latin Edition", "Swedenborgiana"];
                 libraryCategoryButtons.innerHTML = '';
                 categories.forEach(category => {
-                    const button = document.createElement('button');
-                    button.textContent = category;
-                    button.className = 'library-btn text-2xl sm:text-3xl py-4 px-8 rounded-lg shadow-md w-full max-w-md';
-                    button.addEventListener('click', () => {
-                        renderBookList(category);
-                        showView('library-books-view');
-                    });
-                    libraryCategoryButtons.appendChild(button);
+                    const booksInCategory = bookList.filter(book => book.type === category);
+                    if (booksInCategory.length > 0) {
+                        const button = document.createElement('button');
+                        button.textContent = category;
+                        button.className = 'library-btn text-2xl sm:text-3xl py-4 px-8 rounded-lg shadow-md w-full max-w-md';
+                        button.addEventListener('click', () => {
+                            renderBookList(category);
+                            showView('library-books-view');
+                        });
+                        libraryCategoryButtons.appendChild(button);
+                    }
                 });
             }
 
@@ -162,7 +168,7 @@
                 let bookCardsHTML = booksInCategory.map(book => `
                     <div class="book-card bg-white rounded-lg shadow-md p-4 cursor-pointer" data-book-id="${book.id}">
                         <h3 class="header-font text-xl font-bold">${book.title}</h3>
-                        <p class="text-sm text-gray-600">${book.author} - ${book.language}</p>
+                        <p class="text-sm text-gray-600">${book.language}</p>
                     </div>
                 `).join('');
 
@@ -177,15 +183,24 @@
                     card.addEventListener('click', async () => {
                         const bookId = card.dataset.bookId;
                         const book = bookList.find(b => b.id === bookId);
-                        const prompt = `The user has selected the book titled "${book.title}". Please acknowledge this selection and ask them what they would like to know about it.`;
-                        renderChatMessage(`Selected: ${book.title}`, true);
-                        await sendToAI(prompt);
-                        showView('conversation-view');
+                        try {
+                            const response = await fetch(`./data/${book.file}`);
+                            if (!response.ok) throw new Error('Failed to load book data');
+                            currentBookData = await response.json();
+                            
+                            const prompt = `The user has selected the book titled "${currentBookData.title}". Please acknowledge this selection and ask them what they would like to know about it.`;
+                            renderChatMessage(`Selected: ${currentBookData.title}`, true);
+                            await sendToAI(prompt);
+                            showView('conversation-view');
+                        } catch (error) {
+                            console.error("Error loading book data:", error);
+                            renderChatMessage("Sorry, I could not load that book's content.", false);
+                        }
                     });
                 });
             }
 
-            // --- CONVERSATIONAL AI & AUDIO LOGIC ---
+            // --- CONVERSATIONAL AI LOGIC ---
             recognition.onstart = () => { statusMessage.textContent = "Listening..."; micBtn.classList.add('listening'); };
             recognition.onresult = async (event) => {
                 const userText = event.results[0][0].transcript;
@@ -201,13 +216,12 @@
                 
                 conversationHistory.push({role: 'user', parts: [{text}]});
 
-                // --- THIS IS THE LIVE CONNECTION TO YOUR VERCEL BACKEND ---
-                // The URL now points to the correct Vercel endpoint.
-                const backendUrl = 'https://swedenborg-reader.vercel.app/api/index'; 
+                const backendUrl = '/api/index'; // Vercel handles routing this to api/index.py
                 
                 const payload = {
                     text: text,
                     history: conversationHistory,
+                    bookContext: currentBookData // Pass the full book context if available
                 };
 
                 try {
@@ -272,6 +286,7 @@
             // --- EVENT LISTENERS ---
             askQuestionBtn.addEventListener('click', () => {
                 showView('conversation-view');
+                currentBookData = null; // Clear book context when starting a general chat
                 if (conversationHistory.length === 0) {
                      renderChatMessage("Hello! How can I help you explore the works of Emanuel Swedenborg today?", false);
                 }
