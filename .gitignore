@@ -1,2 +1,7 @@
 test_*.py
 README_FIX.md
+
+# API Cache
+api/__pycache__/
+*.pyc
+*.pyo
