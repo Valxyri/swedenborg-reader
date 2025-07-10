@@ -1,95 +1,11 @@
 {
   "books": [
     {
-      "id": "9q_latin",
-      "title": "9Q Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "9q_latin.json"
-    },
-    {
-      "id": "ac_latin",
-      "title": "Ac Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ac_latin.json"
-    },
-    {
-      "id": "ae_latin",
-      "title": "Ae Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ae_latin.json"
-    },
-    {
-      "id": "ang_latin",
-      "title": "Ang Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ang_latin.json"
-    },
-    {
-      "id": "ar_latin",
-      "title": "Ar Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ar_latin.json"
-    },
-    {
-      "id": "ath_latin",
-      "title": "Ath Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ath_latin.json"
-    },
-    {
-      "id": "be_latin",
-      "title": "Be Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "be_latin.json"
-    },
-    {
-      "id": "bsn_vol1_191113",
-      "title": "Bsn Vol1 191113",
+      "id": "sf_compendium_warren",
+      "title": "Sf Compendium Warren",
       "type": "Standard Edition",
       "language": "English",
-      "file": "bsn_vol1_191113.json"
-    },
-    {
-      "id": "bsn_vol2_191113",
-      "title": "Bsn Vol2 191113",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "bsn_vol2_191113.json"
-    },
-    {
-      "id": "bsn_vol3_191113",
-      "title": "Bsn Vol3 191113",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "bsn_vol3_191113.json"
-    },
-    {
-      "id": "bsn_vol4_191113",
-      "title": "Bsn Vol4 191113",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "bsn_vol4_191113.json"
-    },
-    {
-      "id": "bsn_vol5_191113",
-      "title": "Bsn Vol5 191113",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "bsn_vol5_191113.json"
-    },
-    {
-      "id": "bsn_vol6_191113",
-      "title": "Bsn Vol6 191113",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "bsn_vol6_191113.json"
+      "file": "sf_compendium_warren.json"
     },
     {
       "id": "calv_latin",
@@ -99,258 +15,6 @@
       "file": "calv_latin.json"
     },
     {
-      "id": "canons_latin",
-      "title": "Canons Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "canons_latin.json"
-    },
-    {
-      "id": "charity_latin",
-      "title": "Charity Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "charity_latin.json"
-    },
-    {
-      "id": "cj_latin",
-      "title": "Cj Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "cj_latin.json"
-    },
-    {
-      "id": "cl_latin",
-      "title": "Cl Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "cl_latin.json"
-    },
-    {
-      "id": "conc_latin",
-      "title": "Conc Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "conc_latin.json"
-    },
-    {
-      "id": "conj_latin",
-      "title": "Conj Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "conj_latin.json"
-    },
-    {
-      "id": "cons_latin",
-      "title": "Cons Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "cons_latin.json"
-    },
-    {
-      "id": "cor_latin",
-      "title": "Cor Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "cor_latin.json"
-    },
-    {
-      "id": "dec_latin",
-      "title": "Dec Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "dec_latin.json"
-    },
-    {
-      "id": "dlw_latin",
-      "title": "Dlw Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "dlw_latin.json"
-    },
-    {
-      "id": "dl_latin",
-      "title": "Dl Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "dl_latin.json"
-    },
-    {
-      "id": "dole_introtheologicallatin",
-      "title": "Dole Introtheologicallatin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "dole_introtheologicallatin.json"
-    },
-    {
-      "id": "dom_latin",
-      "title": "Dom Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "dom_latin.json"
-    },
-    {
-      "id": "dp_latin",
-      "title": "Dp Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "dp_latin.json"
-    },
-    {
-      "id": "dw_latin",
-      "title": "Dw Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "dw_latin.json"
-    },
-    {
-      "id": "ecc_latin",
-      "title": "Ecc Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ecc_latin.json"
-    },
-    {
-      "id": "eu_latin",
-      "title": "Eu Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "eu_latin.json"
-    },
-    {
-      "id": "faith_latin",
-      "title": "Faith Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "faith_latin.json"
-    },
-    {
-      "id": "gad_latin",
-      "title": "Gad Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "gad_latin.json"
-    },
-    {
-      "id": "hh_latin",
-      "title": "Hh Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "hh_latin.json"
-    },
-    {
-      "id": "infl_latin",
-      "title": "Infl Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "infl_latin.json"
-    },
-    {
-      "id": "isb_latin",
-      "title": "Isb Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "isb_latin.json"
-    },
-    {
-      "id": "i_latin",
-      "title": "I Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "i_latin.json"
-    },
-    {
-      "id": "just_latin",
-      "title": "Just Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "just_latin.json"
-    },
-    {
-      "id": "latin_latin",
-      "title": "Latin Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "latin_latin.json"
-    },
-    {
-      "id": "lett_latin",
-      "title": "Lett Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "lett_latin.json"
-    },
-    {
-      "id": "life_latin",
-      "title": "Life Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "life_latin.json"
-    },
-    {
-      "id": "ljp_latin",
-      "title": "Ljp Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ljp_latin.json"
-    },
-    {
-      "id": "lj_latin",
-      "title": "Lj Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "lj_latin.json"
-    },
-    {
-      "id": "lord_latin",
-      "title": "Lord Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "lord_latin.json"
-    },
-    {
-      "id": "mem_latin",
-      "title": "Mem Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "mem_latin.json"
-    },
-    {
-      "id": "mi1_latin",
-      "title": "Mi1 Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "mi1_latin.json"
-    },
-    {
-      "id": "mi2_latin",
-      "title": "Mi2 Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "mi2_latin.json"
-    },
-    {
-      "id": "mir_latin",
-      "title": "Mir Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "mir_latin.json"
-    },
-    {
-      "id": "miscellaneous_works_latin",
-      "title": "Miscellaneous Works Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "miscellaneous_works_latin.json"
-    },
-    {
-      "id": "nce_heavenandhell_portable",
-      "title": "Nce Heavenandhell Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_heavenandhell_portable.json"
-    },
-    {
       "id": "nce_lastjudgment",
       "title": "Nce Lastjudgment",
       "type": "New Century Edition",
@@ -358,382 +22,11 @@
       "file": "nce_lastjudgment.json"
     },
     {
-      "id": "nce_lifefaith_portable",
-      "title": "Nce Lifefaith Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_lifefaith_portable.json"
-    },
-    {
-      "id": "nce_newjerusalem_portable",
-      "title": "Nce Newjerusalem Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_newjerusalem_portable.json"
-    },
-    {
-      "id": "nce_otherplanets",
-      "title": "Nce Otherplanets",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_otherplanets.json"
-    },
-    {
-      "id": "nce_sacredscripturewhitehorse_portable_2ndprinting",
-      "title": "Nce Sacredscripturewhitehorse Portable 2Ndprinting",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_sacredscripturewhitehorse_portable_2ndprinting.json"
-    },
-    {
-      "id": "nce_secretsofheaven1_portable",
-      "title": "Nce Secretsofheaven1 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven1_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven2_portable",
-      "title": "Nce Secretsofheaven2 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven2_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven3_portable",
-      "title": "Nce Secretsofheaven3 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven3_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven4_portable",
-      "title": "Nce Secretsofheaven4 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven4_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven5_portable",
-      "title": "Nce Secretsofheaven5 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven5_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven6_portable",
-      "title": "Nce Secretsofheaven6 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven6_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven7_portable",
-      "title": "Nce Secretsofheaven7 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven7_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven8_portable",
-      "title": "Nce Secretsofheaven8 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven8_portable.json"
-    },
-    {
-      "id": "nce_secretsofheaven9_portable",
-      "title": "Nce Secretsofheaven9 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_secretsofheaven9_portable.json"
-    },
-    {
-      "id": "nce_surveysoulbodyinteraction_portable",
-      "title": "Nce Surveysoulbodyinteraction Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_surveysoulbodyinteraction_portable.json"
-    },
-    {
-      "id": "nce_thelord_portable",
-      "title": "Nce Thelord Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_thelord_portable.json"
-    },
-    {
-      "id": "nce_truechristianity1_portable",
-      "title": "Nce Truechristianity1 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_truechristianity1_portable.json"
-    },
-    {
-      "id": "nce_truechristianity2_portable",
-      "title": "Nce Truechristianity2 Portable",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "nce_truechristianity2_portable.json"
-    },
-    {
-      "id": "njhd_latin",
-      "title": "Njhd Latin",
+      "id": "wh_latin",
+      "title": "Wh Latin",
       "type": "Latin Edition",
       "language": "English",
-      "file": "njhd_latin.json"
-    },
-    {
-      "id": "od_whentragedystrikes",
-      "title": "Od Whentragedystrikes",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "od_whentragedystrikes.json"
-    },
-    {
-      "id": "pent_latin",
-      "title": "Pent Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "pent_latin.json"
-    },
-    {
-      "id": "posthumous_works_latin",
-      "title": "Posthumous Works Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "posthumous_works_latin.json"
-    },
-    {
-      "id": "pp_latin",
-      "title": "Pp Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "pp_latin.json"
-    },
-    {
-      "id": "sav_latin",
-      "title": "Sav Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "sav_latin.json"
-    },
-    {
-      "id": "sc_latin",
-      "title": "Sc Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "sc_latin.json"
-    },
-    {
-      "id": "sem_latin",
-      "title": "Sem Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "sem_latin.json"
-    },
-    {
-      "id": "sewe_latin",
-      "title": "Sewe Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "sewe_latin.json"
-    },
-    {
-      "id": "sflivesofangels",
-      "title": "Sflivesofangels",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sflivesofangels.json"
-    },
-    {
-      "id": "sf_afterlife",
-      "title": "Sf Afterlife",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_afterlife.json"
-    },
-    {
-      "id": "sf_compendium_warren",
-      "title": "Sf Compendium Warren",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_compendium_warren.json"
-    },
-    {
-      "id": "sf_cr_eternalwellness",
-      "title": "Sf Cr Eternalwellness",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_cr_eternalwellness.json"
-    },
-    {
-      "id": "sf_cr_imaginethat",
-      "title": "Sf Cr Imaginethat",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_cr_imaginethat.json"
-    },
-    {
-      "id": "sf_cr_passages",
-      "title": "Sf Cr Passages",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_cr_passages.json"
-    },
-    {
-      "id": "sf_epicoftheafterlife_lagercrantz",
-      "title": "Sf Epicoftheafterlife Lagercrantz",
-      "type": "Swedenborgiana",
-      "language": "English",
-      "file": "sf_epicoftheafterlife_lagercrantz.json"
-    },
-    {
-      "id": "sf_florschutz_swedenborgkant",
-      "title": "Sf Florschutz Swedenborgkant",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_florschutz_swedenborgkant.json"
-    },
-    {
-      "id": "sf_groll_newparadigmscience",
-      "title": "Sf Groll Newparadigmscience",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "sf_groll_newparadigmscience.json"
-    },
-    {
-      "id": "sf_jonsson_visionaryscientist",
-      "title": "Sf Jonsson Visionaryscientist",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_jonsson_visionaryscientist.json"
-    },
-    {
-      "id": "sf_lamm_developmentofthought",
-      "title": "Sf Lamm Developmentofthought",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_lamm_developmentofthought.json"
-    },
-    {
-      "id": "sf_ourlifeafterdeath",
-      "title": "Sf Ourlifeafterdeath",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_ourlifeafterdeath.json"
-    },
-    {
-      "id": "sf_overcomingdivisiveness",
-      "title": "Sf Overcomingdivisiveness",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_overcomingdivisiveness.json"
-    },
-    {
-      "id": "sf_regeneration",
-      "title": "Sf Regeneration",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_regeneration.json"
-    },
-    {
-      "id": "sf_scientistexploresspirit",
-      "title": "Sf Scientistexploresspirit",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_scientistexploresspirit.json"
-    },
-    {
-      "id": "sf_skinner_roses",
-      "title": "Sf Skinner Roses",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_skinner_roses.json"
-    },
-    {
-      "id": "sf_thoughtfulsoul",
-      "title": "Sf Thoughtfulsoul",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_thoughtfulsoul.json"
-    },
-    {
-      "id": "sf_toksvig_scientistmystic",
-      "title": "Sf Toksvig Scientistmystic",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_toksvig_scientistmystic.json"
-    },
-    {
-      "id": "sf_woofenden_explorersguidebook",
-      "title": "Sf Woofenden Explorersguidebook",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "sf_woofenden_explorersguidebook.json"
-    },
-    {
-      "id": "spec_latin",
-      "title": "Spec Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "spec_latin.json"
-    },
-    {
-      "id": "ss_latin",
-      "title": "Ss Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "ss_latin.json"
-    },
-    {
-      "id": "sumap_latin",
-      "title": "Sumap Latin",
-      "type": "Latin Edition",
-      "language": "English",
-      "file": "sumap_latin.json"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_01",
-      "title": "Swedenborg Foundation Apocalypse Explained 01",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_explained_01.json"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_02",
-      "title": "Swedenborg Foundation Apocalypse Explained 02",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_explained_02.json"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_03",
-      "title": "Swedenborg Foundation Apocalypse Explained 03",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_explained_03.json"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_04",
-      "title": "Swedenborg Foundation Apocalypse Explained 04",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_explained_04.json"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_05",
-      "title": "Swedenborg Foundation Apocalypse Explained 05",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_explained_05.json"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_explained_06",
-      "title": "Swedenborg Foundation Apocalypse Explained 06",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_explained_06.json"
+      "file": "wh_latin.json"
     },
     {
       "id": "swedenborg_foundation_apocalypse_revealed_01",
@@ -743,200 +36,11 @@
       "file": "swedenborg_foundation_apocalypse_revealed_01.json"
     },
     {
-      "id": "swedenborg_foundation_apocalypse_revealed_02",
-      "title": "Swedenborg Foundation Apocalypse Revealed 02",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_revealed_02.json"
-    },
-    {
-      "id": "swedenborg_foundation_apocalypse_revealed_02pdf",
-      "title": "Swedenborg Foundation Apocalypse Revealed 02Pdf",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_apocalypse_revealed_02pdf.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_01",
-      "title": "Swedenborg Foundation Arcana Coelestia 01",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_01.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_02",
-      "title": "Swedenborg Foundation Arcana Coelestia 02",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_02.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_03",
-      "title": "Swedenborg Foundation Arcana Coelestia 03",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_03.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_04",
-      "title": "Swedenborg Foundation Arcana Coelestia 04",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_04.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_05",
-      "title": "Swedenborg Foundation Arcana Coelestia 05",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_05.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_06",
-      "title": "Swedenborg Foundation Arcana Coelestia 06",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_06.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_07",
-      "title": "Swedenborg Foundation Arcana Coelestia 07",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_07.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_08",
-      "title": "Swedenborg Foundation Arcana Coelestia 08",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_08.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_09",
-      "title": "Swedenborg Foundation Arcana Coelestia 09",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_09.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_10",
-      "title": "Swedenborg Foundation Arcana Coelestia 10",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_10.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_11",
-      "title": "Swedenborg Foundation Arcana Coelestia 11",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_11.json"
-    },
-    {
-      "id": "swedenborg_foundation_arcana_coelestia_12",
-      "title": "Swedenborg Foundation Arcana Coelestia 12",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_arcana_coelestia_12.json"
-    },
-    {
-      "id": "swedenborg_foundation_brief_exposition",
-      "title": "Swedenborg Foundation Brief Exposition",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_brief_exposition.json"
-    },
-    {
       "id": "swedenborg_foundation_conjugial_love",
       "title": "Swedenborg Foundation Conjugial Love",
       "type": "Standard Edition",
       "language": "English",
       "file": "swedenborg_foundation_conjugial_love.json"
-    },
-    {
-      "id": "swedenborg_foundation_continuation_on_last_judgment",
-      "title": "Swedenborg Foundation Continuation On Last Judgment",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_continuation_on_last_judgment.json"
-    },
-    {
-      "id": "swedenborg_foundation_divine_love_and_wisdom",
-      "title": "Swedenborg Foundation Divine Love And Wisdom",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_divine_love_and_wisdom.json"
-    },
-    {
-      "id": "swedenborg_foundation_divine_providence",
-      "title": "Swedenborg Foundation Divine Providence",
-      "type": "New Century Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_divine_providence.json"
-    },
-    {
-      "id": "swedenborg_foundation_earths_in_the_universe",
-      "title": "Swedenborg Foundation Earths In The Universe",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_earths_in_the_universe.json"
-    },
-    {
-      "id": "swedenborg_foundation_four_doctrines",
-      "title": "Swedenborg Foundation Four Doctrines",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_four_doctrines.json"
-    },
-    {
-      "id": "swedenborg_foundation_heaven_and_hell",
-      "title": "Swedenborg Foundation Heaven And Hell",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_heaven_and_hell.json"
-    },
-    {
-      "id": "swedenborg_foundation_interaction_of_soul_and_body",
-      "title": "Swedenborg Foundation Interaction Of Soul And Body",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_interaction_of_soul_and_body.json"
-    },
-    {
-      "id": "swedenborg_foundation_last_judgment",
-      "title": "Swedenborg Foundation Last Judgment",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_last_judgment.json"
-    },
-    {
-      "id": "swedenborg_foundation_misc_theological_works",
-      "title": "Swedenborg Foundation Misc Theological Works",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_misc_theological_works.json"
-    },
-    {
-      "id": "swedenborg_foundation_new_jerusalem",
-      "title": "Swedenborg Foundation New Jerusalem",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_new_jerusalem.json"
-    },
-    {
-      "id": "swedenborg_foundation_posthumous_theological_works_01",
-      "title": "Swedenborg Foundation Posthumous Theological Works 01",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_posthumous_theological_works_01.json"
-    },
-    {
-      "id": "swedenborg_foundation_posthumous_theological_works_volume_2",
-      "title": "Swedenborg Foundation Posthumous Theological Works Volume 2",
-      "type": "Standard Edition",
-      "language": "English",
-      "file": "swedenborg_foundation_posthumous_theological_works_volume_2.json"
     },
     {
       "id": "swedenborg_foundation_true_christian_religion_01",
@@ -946,39 +50,102 @@
       "file": "swedenborg_foundation_true_christian_religion_01.json"
     },
     {
-      "id": "swedenborg_foundation_true_christian_religion_02",
-      "title": "Swedenborg Foundation True Christian Religion 02",
+      "id": "pp_latin",
+      "title": "Pp Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "pp_latin.json"
+    },
+    {
+      "id": "nce_surveysoulbodyinteraction_portable",
+      "title": "Nce Surveysoulbodyinteraction Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_surveysoulbodyinteraction_portable.json"
+    },
+    {
+      "id": "sc_latin",
+      "title": "Sc Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "sc_latin.json"
+    },
+    {
+      "id": "sf_skinner_roses",
+      "title": "Sf Skinner Roses",
       "type": "Standard Edition",
       "language": "English",
-      "file": "swedenborg_foundation_true_christian_religion_02.json"
+      "file": "sf_skinner_roses.json"
     },
     {
-      "id": "swedenborg_foundation_white_horse",
-      "title": "Swedenborg Foundation White Horse",
+      "id": "be_latin",
+      "title": "Be Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "be_latin.json"
+    },
+    {
+      "id": "sf_scientistexploresspirit",
+      "title": "Sf Scientistexploresspirit",
       "type": "Standard Edition",
       "language": "English",
-      "file": "swedenborg_foundation_white_horse.json"
+      "file": "sf_scientistexploresspirit.json"
     },
     {
-      "id": "tcradd_latin",
-      "title": "Tcradd Latin",
+      "id": "conc_latin",
+      "title": "Conc Latin",
       "type": "Latin Edition",
       "language": "English",
-      "file": "tcradd_latin.json"
+      "file": "conc_latin.json"
     },
     {
-      "id": "tcr_latin",
-      "title": "Tcr Latin",
-      "type": "Latin Edition",
+      "id": "swedenborg_foundation_arcana_coelestia_12",
+      "title": "Swedenborg Foundation Arcana Coelestia 12",
+      "type": "Standard Edition",
       "language": "English",
-      "file": "tcr_latin.json"
+      "file": "swedenborg_foundation_arcana_coelestia_12.json"
     },
     {
-      "id": "translations_latin",
-      "title": "Translations Latin",
+      "id": "nce_secretsofheaven3_portable",
+      "title": "Nce Secretsofheaven3 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven3_portable.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_explained_06",
+      "title": "Swedenborg Foundation Apocalypse Explained 06",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_06.json"
+    },
+    {
+      "id": "nce_truechristianity1_portable",
+      "title": "Nce Truechristianity1 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_truechristianity1_portable.json"
+    },
+    {
+      "id": "sf_epicoftheafterlife_lagercrantz",
+      "title": "Sf Epicoftheafterlife Lagercrantz",
+      "type": "Swedenborgiana",
+      "language": "English",
+      "file": "sf_epicoftheafterlife_lagercrantz.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_revealed_02",
+      "title": "Swedenborg Foundation Apocalypse Revealed 02",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_revealed_02.json"
+    },
+    {
+      "id": "lj_latin",
+      "title": "Lj Latin",
       "type": "Latin Edition",
       "language": "English",
-      "file": "translations_latin.json"
+      "file": "lj_latin.json"
     },
     {
       "id": "vandusen_designofexistence",
@@ -988,11 +155,214 @@
       "file": "vandusen_designofexistence.json"
     },
     {
+      "id": "swedenborg_foundation_arcana_coelestia_04",
+      "title": "Swedenborg Foundation Arcana Coelestia 04",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_04.json"
+    },
+    {
+      "id": "mi1_latin",
+      "title": "Mi1 Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "mi1_latin.json"
+    },
+    {
+      "id": "canons_latin",
+      "title": "Canons Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "canons_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_heaven_and_hell",
+      "title": "Swedenborg Foundation Heaven And Hell",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_heaven_and_hell.json"
+    },
+    {
+      "id": "bsn_vol1_191113",
+      "title": "Bsn Vol1 191113",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "bsn_vol1_191113.json"
+    },
+    {
+      "id": "sf_florschutz_swedenborgkant",
+      "title": "Sf Florschutz Swedenborgkant",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_florschutz_swedenborgkant.json"
+    },
+    {
+      "id": "lord_latin",
+      "title": "Lord Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "lord_latin.json"
+    },
+    {
+      "id": "nce_secretsofheaven1_portable",
+      "title": "Nce Secretsofheaven1 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven1_portable.json"
+    },
+    {
+      "id": "dw_latin",
+      "title": "Dw Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "dw_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_posthumous_theological_works_volume_2",
+      "title": "Swedenborg Foundation Posthumous Theological Works Volume 2",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_posthumous_theological_works_volume_2.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_explained_02",
+      "title": "Swedenborg Foundation Apocalypse Explained 02",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_02.json"
+    },
+    {
+      "id": "dole_introtheologicallatin",
+      "title": "Dole Introtheologicallatin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "dole_introtheologicallatin.json"
+    },
+    {
+      "id": "swedenborg_foundation_interaction_of_soul_and_body",
+      "title": "Swedenborg Foundation Interaction Of Soul And Body",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_interaction_of_soul_and_body.json"
+    },
+    {
       "id": "verbo_latin",
       "title": "Verbo Latin",
       "type": "Latin Edition",
       "language": "English",
       "file": "verbo_latin.json"
+    },
+    {
+      "id": "infl_latin",
+      "title": "Infl Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "infl_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_four_doctrines",
+      "title": "Swedenborg Foundation Four Doctrines",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_four_doctrines.json"
+    },
+    {
+      "id": "bsn_vol6_191113",
+      "title": "Bsn Vol6 191113",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "bsn_vol6_191113.json"
+    },
+    {
+      "id": "sf_jonsson_visionaryscientist",
+      "title": "Sf Jonsson Visionaryscientist",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_jonsson_visionaryscientist.json"
+    },
+    {
+      "id": "cons_latin",
+      "title": "Cons Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "cons_latin.json"
+    },
+    {
+      "id": "just_latin",
+      "title": "Just Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "just_latin.json"
+    },
+    {
+      "id": "sf_woofenden_explorersguidebook",
+      "title": "Sf Woofenden Explorersguidebook",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_woofenden_explorersguidebook.json"
+    },
+    {
+      "id": "swedenborg_foundation_divine_love_and_wisdom",
+      "title": "Swedenborg Foundation Divine Love And Wisdom",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_divine_love_and_wisdom.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_explained_04",
+      "title": "Swedenborg Foundation Apocalypse Explained 04",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_04.json"
+    },
+    {
+      "id": "tcradd_latin",
+      "title": "Tcradd Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "tcradd_latin.json"
+    },
+    {
+      "id": "eu_latin",
+      "title": "Eu Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "eu_latin.json"
+    },
+    {
+      "id": "sf_groll_newparadigmscience",
+      "title": "Sf Groll Newparadigmscience",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "sf_groll_newparadigmscience.json"
+    },
+    {
+      "id": "bsn_vol4_191113",
+      "title": "Bsn Vol4 191113",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "bsn_vol4_191113.json"
+    },
+    {
+      "id": "sf_overcomingdivisiveness",
+      "title": "Sf Overcomingdivisiveness",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_overcomingdivisiveness.json"
+    },
+    {
+      "id": "nce_secretsofheaven9_portable",
+      "title": "Nce Secretsofheaven9 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven9_portable.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_explained_03",
+      "title": "Swedenborg Foundation Apocalypse Explained 03",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_03.json"
     },
     {
       "id": "whapp_latin",
@@ -1002,11 +372,641 @@
       "file": "whapp_latin.json"
     },
     {
-      "id": "wh_latin",
-      "title": "Wh Latin",
+      "id": "sewe_latin",
+      "title": "Sewe Latin",
       "type": "Latin Edition",
       "language": "English",
-      "file": "wh_latin.json"
+      "file": "sewe_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_07",
+      "title": "Swedenborg Foundation Arcana Coelestia 07",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_07.json"
+    },
+    {
+      "id": "sf_regeneration",
+      "title": "Sf Regeneration",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_regeneration.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_08",
+      "title": "Swedenborg Foundation Arcana Coelestia 08",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_08.json"
+    },
+    {
+      "id": "dlw_latin",
+      "title": "Dlw Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "dlw_latin.json"
+    },
+    {
+      "id": "tcr_latin",
+      "title": "Tcr Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "tcr_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_09",
+      "title": "Swedenborg Foundation Arcana Coelestia 09",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_09.json"
+    },
+    {
+      "id": "ath_latin",
+      "title": "Ath Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ath_latin.json"
+    },
+    {
+      "id": "gad_latin",
+      "title": "Gad Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "gad_latin.json"
+    },
+    {
+      "id": "njhd_latin",
+      "title": "Njhd Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "njhd_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_revealed_02pdf",
+      "title": "Swedenborg Foundation Apocalypse Revealed 02Pdf",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_revealed_02pdf.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_11",
+      "title": "Swedenborg Foundation Arcana Coelestia 11",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_11.json"
+    },
+    {
+      "id": "sflivesofangels",
+      "title": "Sflivesofangels",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sflivesofangels.json"
+    },
+    {
+      "id": "nce_secretsofheaven8_portable",
+      "title": "Nce Secretsofheaven8 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven8_portable.json"
+    },
+    {
+      "id": "translations_latin",
+      "title": "Translations Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "translations_latin.json"
+    },
+    {
+      "id": "ljp_latin",
+      "title": "Ljp Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ljp_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_brief_exposition",
+      "title": "Swedenborg Foundation Brief Exposition",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_brief_exposition.json"
+    },
+    {
+      "id": "swedenborg_foundation_divine_providence",
+      "title": "Swedenborg Foundation Divine Providence",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_divine_providence.json"
+    },
+    {
+      "id": "sf_cr_passages",
+      "title": "Sf Cr Passages",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_cr_passages.json"
+    },
+    {
+      "id": "swedenborg_foundation_last_judgment",
+      "title": "Swedenborg Foundation Last Judgment",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_last_judgment.json"
+    },
+    {
+      "id": "bsn_vol3_191113",
+      "title": "Bsn Vol3 191113",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "bsn_vol3_191113.json"
+    },
+    {
+      "id": "mem_latin",
+      "title": "Mem Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "mem_latin.json"
+    },
+    {
+      "id": "life_latin",
+      "title": "Life Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "life_latin.json"
+    },
+    {
+      "id": "bsn_vol2_191113",
+      "title": "Bsn Vol2 191113",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "bsn_vol2_191113.json"
+    },
+    {
+      "id": "ae_latin",
+      "title": "Ae Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ae_latin.json"
+    },
+    {
+      "id": "nce_newjerusalem_portable",
+      "title": "Nce Newjerusalem Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_newjerusalem_portable.json"
+    },
+    {
+      "id": "swedenborg_foundation_posthumous_theological_works_01",
+      "title": "Swedenborg Foundation Posthumous Theological Works 01",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_posthumous_theological_works_01.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_03",
+      "title": "Swedenborg Foundation Arcana Coelestia 03",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_03.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_06",
+      "title": "Swedenborg Foundation Arcana Coelestia 06",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_06.json"
+    },
+    {
+      "id": "swedenborg_foundation_true_christian_religion_02",
+      "title": "Swedenborg Foundation True Christian Religion 02",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_true_christian_religion_02.json"
+    },
+    {
+      "id": "dom_latin",
+      "title": "Dom Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "dom_latin.json"
+    },
+    {
+      "id": "posthumous_works_latin",
+      "title": "Posthumous Works Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "posthumous_works_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_02",
+      "title": "Swedenborg Foundation Arcana Coelestia 02",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_02.json"
+    },
+    {
+      "id": "mi2_latin",
+      "title": "Mi2 Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "mi2_latin.json"
+    },
+    {
+      "id": "faith_latin",
+      "title": "Faith Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "faith_latin.json"
+    },
+    {
+      "id": "cor_latin",
+      "title": "Cor Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "cor_latin.json"
+    },
+    {
+      "id": "nce_secretsofheaven6_portable",
+      "title": "Nce Secretsofheaven6 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven6_portable.json"
+    },
+    {
+      "id": "sem_latin",
+      "title": "Sem Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "sem_latin.json"
+    },
+    {
+      "id": "nce_otherplanets",
+      "title": "Nce Otherplanets",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_otherplanets.json"
+    },
+    {
+      "id": "sf_cr_imaginethat",
+      "title": "Sf Cr Imaginethat",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_cr_imaginethat.json"
+    },
+    {
+      "id": "dec_latin",
+      "title": "Dec Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "dec_latin.json"
+    },
+    {
+      "id": "ar_latin",
+      "title": "Ar Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ar_latin.json"
+    },
+    {
+      "id": "od_whentragedystrikes",
+      "title": "Od Whentragedystrikes",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "od_whentragedystrikes.json"
+    },
+    {
+      "id": "nce_thelord_portable",
+      "title": "Nce Thelord Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_thelord_portable.json"
+    },
+    {
+      "id": "nce_secretsofheaven4_portable",
+      "title": "Nce Secretsofheaven4 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven4_portable.json"
+    },
+    {
+      "id": "swedenborg_foundation_new_jerusalem",
+      "title": "Swedenborg Foundation New Jerusalem",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_new_jerusalem.json"
+    },
+    {
+      "id": "nce_secretsofheaven7_portable",
+      "title": "Nce Secretsofheaven7 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven7_portable.json"
+    },
+    {
+      "id": "sumap_latin",
+      "title": "Sumap Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "sumap_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_10",
+      "title": "Swedenborg Foundation Arcana Coelestia 10",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_10.json"
+    },
+    {
+      "id": "nce_sacredscripturewhitehorse_portable_2ndprinting",
+      "title": "Nce Sacredscripturewhitehorse Portable 2Ndprinting",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_sacredscripturewhitehorse_portable_2ndprinting.json"
+    },
+    {
+      "id": "i_latin",
+      "title": "I Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "i_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_01",
+      "title": "Swedenborg Foundation Arcana Coelestia 01",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_01.json"
+    },
+    {
+      "id": "miscellaneous_works_latin",
+      "title": "Miscellaneous Works Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "miscellaneous_works_latin.json"
+    },
+    {
+      "id": "ac_latin",
+      "title": "Ac Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ac_latin.json"
+    },
+    {
+      "id": "ss_latin",
+      "title": "Ss Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ss_latin.json"
+    },
+    {
+      "id": "sf_toksvig_scientistmystic",
+      "title": "Sf Toksvig Scientistmystic",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_toksvig_scientistmystic.json"
+    },
+    {
+      "id": "swedenborg_foundation_arcana_coelestia_05",
+      "title": "Swedenborg Foundation Arcana Coelestia 05",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_arcana_coelestia_05.json"
+    },
+    {
+      "id": "swedenborg_foundation_earths_in_the_universe",
+      "title": "Swedenborg Foundation Earths In The Universe",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_earths_in_the_universe.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_explained_05",
+      "title": "Swedenborg Foundation Apocalypse Explained 05",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_05.json"
+    },
+    {
+      "id": "cl_latin",
+      "title": "Cl Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "cl_latin.json"
+    },
+    {
+      "id": "pent_latin",
+      "title": "Pent Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "pent_latin.json"
+    },
+    {
+      "id": "nce_heavenandhell_portable",
+      "title": "Nce Heavenandhell Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_heavenandhell_portable.json"
+    },
+    {
+      "id": "sf_lamm_developmentofthought",
+      "title": "Sf Lamm Developmentofthought",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_lamm_developmentofthought.json"
+    },
+    {
+      "id": "cj_latin",
+      "title": "Cj Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "cj_latin.json"
+    },
+    {
+      "id": "sf_thoughtfulsoul",
+      "title": "Sf Thoughtfulsoul",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_thoughtfulsoul.json"
+    },
+    {
+      "id": "ang_latin",
+      "title": "Ang Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ang_latin.json"
+    },
+    {
+      "id": "sf_afterlife",
+      "title": "Sf Afterlife",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_afterlife.json"
+    },
+    {
+      "id": "swedenborg_foundation_apocalypse_explained_01",
+      "title": "Swedenborg Foundation Apocalypse Explained 01",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_apocalypse_explained_01.json"
+    },
+    {
+      "id": "nce_secretsofheaven5_portable",
+      "title": "Nce Secretsofheaven5 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven5_portable.json"
+    },
+    {
+      "id": "dp_latin",
+      "title": "Dp Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "dp_latin.json"
+    },
+    {
+      "id": "nce_truechristianity2_portable",
+      "title": "Nce Truechristianity2 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_truechristianity2_portable.json"
+    },
+    {
+      "id": "nce_lifefaith_portable",
+      "title": "Nce Lifefaith Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_lifefaith_portable.json"
+    },
+    {
+      "id": "swedenborg_foundation_white_horse",
+      "title": "Swedenborg Foundation White Horse",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_white_horse.json"
+    },
+    {
+      "id": "mir_latin",
+      "title": "Mir Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "mir_latin.json"
+    },
+    {
+      "id": "sf_cr_eternalwellness",
+      "title": "Sf Cr Eternalwellness",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_cr_eternalwellness.json"
+    },
+    {
+      "id": "sav_latin",
+      "title": "Sav Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "sav_latin.json"
+    },
+    {
+      "id": "sf_ourlifeafterdeath",
+      "title": "Sf Ourlifeafterdeath",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "sf_ourlifeafterdeath.json"
+    },
+    {
+      "id": "spec_latin",
+      "title": "Spec Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "spec_latin.json"
+    },
+    {
+      "id": "charity_latin",
+      "title": "Charity Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "charity_latin.json"
+    },
+    {
+      "id": "9q_latin",
+      "title": "9Q Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "9q_latin.json"
+    },
+    {
+      "id": "isb_latin",
+      "title": "Isb Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "isb_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_misc_theological_works",
+      "title": "Swedenborg Foundation Misc Theological Works",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_misc_theological_works.json"
+    },
+    {
+      "id": "latin_latin",
+      "title": "Latin Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "latin_latin.json"
+    },
+    {
+      "id": "dl_latin",
+      "title": "Dl Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "dl_latin.json"
+    },
+    {
+      "id": "ecc_latin",
+      "title": "Ecc Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "ecc_latin.json"
+    },
+    {
+      "id": "swedenborg_foundation_continuation_on_last_judgment",
+      "title": "Swedenborg Foundation Continuation On Last Judgment",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "swedenborg_foundation_continuation_on_last_judgment.json"
+    },
+    {
+      "id": "lett_latin",
+      "title": "Lett Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "lett_latin.json"
+    },
+    {
+      "id": "conj_latin",
+      "title": "Conj Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "conj_latin.json"
+    },
+    {
+      "id": "bsn_vol5_191113",
+      "title": "Bsn Vol5 191113",
+      "type": "Standard Edition",
+      "language": "English",
+      "file": "bsn_vol5_191113.json"
+    },
+    {
+      "id": "nce_secretsofheaven2_portable",
+      "title": "Nce Secretsofheaven2 Portable",
+      "type": "New Century Edition",
+      "language": "English",
+      "file": "nce_secretsofheaven2_portable.json"
+    },
+    {
+      "id": "hh_latin",
+      "title": "Hh Latin",
+      "type": "Latin Edition",
+      "language": "English",
+      "file": "hh_latin.json"
     }
   ]
 }
