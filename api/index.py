@@ -1,34 +1,61 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import os
-import glob
+import urllib.request
+import urllib.parse
+
+def get_data_base_url():
+    """Get the base URL for data files"""
+    # In production, this will be the Vercel deployment URL
+    # For local development, we could use a localhost URL
+    return os.environ.get('VERCEL_URL', 'https://swedenborg-reader.vercel.app') + '/data/'
 
 def get_local_book_files():
-    """Get list of all JSON book files from the local data directory"""
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir = os.path.join(current_dir, "..", "data")
-    data_path = os.path.abspath(data_dir)
-    
-    # Get all JSON files except books.json and generate_books_json.py
-    json_files = []
-    for file in glob.glob(os.path.join(data_path, "*.json")):
-        filename = os.path.basename(file)
-        if filename not in ["books.json"]:
-            json_files.append(filename)
-    
-    return json_files
+    """Get list of all JSON book files"""
+    # Since we can't scan the directory remotely, we'll maintain a static list
+    # of available book files. This could also be loaded from a manifest file.
+    book_files = [
+        "9q_latin.json", "ac_latin.json", "ae_latin.json", "ang_latin.json", 
+        "ar_latin.json", "ath_latin.json", "be_latin.json", "books.json",
+        "bsn_vol1_191113.json", "bsn_vol2_191113.json", "calv_latin.json",
+        "canons_latin.json", "cg_latin.json", "cl_latin.json", "conc_latin.json",
+        "cor_latin.json", "dac_latin.json", "dlw_latin.json", "dp_latin.json",
+        "earths_latin.json", "em_latin.json", "hd_latin.json", "hh_latin.json",
+        "inv_latin.json", "ise_latin.json", "lj_latin.json", "ncecorrespondences_portable.json",
+        "nce_heavenandhell_portable.json", "nce_lastjudgment.json", "nce_secretsofheaven1_portable.json",
+        "nce_secretsofheaven2_portable.json", "nce_secretsofheaven3_portable.json",
+        "nce_surveysoulbodyinteraction_portable.json", "nce_thelord_portable.json",
+        "nce_truechristianity1_portable.json", "nce_truechristianity2_portable.json",
+        "pp_latin.json", "sc_latin.json", "se_latin.json", "sf_compendium_warren.json",
+        "sf_epicoftheafterlife_lagercrantz.json", "sf_scientistexploresspirit.json",
+        "sf_skinner_roses.json", "swedenborg_foundation_apocalypse_explained_01.json",
+        "swedenborg_foundation_apocalypse_explained_02.json", "swedenborg_foundation_apocalypse_explained_03.json",
+        "swedenborg_foundation_apocalypse_explained_04.json", "swedenborg_foundation_apocalypse_explained_05.json",
+        "swedenborg_foundation_apocalypse_explained_06.json", "swedenborg_foundation_apocalypse_revealed_01.json",
+        "swedenborg_foundation_apocalypse_revealed_02.json", "swedenborg_foundation_arcana_coelestia_01.json",
+        "swedenborg_foundation_arcana_coelestia_02.json", "swedenborg_foundation_arcana_coelestia_03.json",
+        "swedenborg_foundation_arcana_coelestia_04.json", "swedenborg_foundation_arcana_coelestia_05.json",
+        "swedenborg_foundation_arcana_coelestia_06.json", "swedenborg_foundation_arcana_coelestia_07.json",
+        "swedenborg_foundation_arcana_coelestia_08.json", "swedenborg_foundation_arcana_coelestia_09.json",
+        "swedenborg_foundation_arcana_coelestia_10.json", "swedenborg_foundation_arcana_coelestia_11.json",
+        "swedenborg_foundation_arcana_coelestia_12.json", "swedenborg_foundation_conjugial_love.json",
+        "swedenborg_foundation_divine_love_and_wisdom.json", "swedenborg_foundation_divine_providence.json",
+        "swedenborg_foundation_true_christian_religion_01.json", "swedenborg_foundation_true_christian_religion_02.json",
+        "swedenborg_foundation_true_christian_religion_03.json", "tcr_latin.json", "wh_latin.json"
+    ]
+    return book_files
 
-def load_local_book(filename):
-    """Load a book file from the local data directory"""
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    data_dir = os.path.join(current_dir, "..", "data")
-    file_path = os.path.join(data_dir, filename)
+def load_remote_book(filename):
+    """Load a book file from the remote data URL"""
+    base_url = get_data_base_url()
+    file_url = base_url + urllib.parse.quote(filename)
     
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+        with urllib.request.urlopen(file_url) as response:
+            data = response.read()
+            return json.loads(data.decode('utf-8'))
     except Exception as e:
-        print(f"Error loading {filename}: {e}")
+        print(f"Error loading {filename} from {file_url}: {e}")
         return None
 
 def search_in_book_content(content, search_terms):
@@ -97,7 +124,7 @@ def search_texts(question, book_context=None):
         ]
         
         for filename in key_books:
-            book_data = load_local_book(filename)
+            book_data = load_remote_book(filename)
             if book_data:
                 results = search_in_book_content(book_data, search_terms)
                 for result in results:
@@ -190,7 +217,8 @@ class handler(BaseHTTPRequestHandler):
         self.end_headers()
         response = {
             "status": "Swedenborg Reader API is running",
-            "description": "This API accepts POST requests with JSON body containing 'text' field for questions about Swedenborg's works."
+            "description": "This API accepts POST requests with JSON body containing 'text' field for questions about Swedenborg's works.",
+            "data_source": "remote_files"
         }
         self.wfile.write(json.dumps(response, indent=2).encode())
     
