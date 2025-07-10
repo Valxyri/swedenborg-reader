@@ -2,15 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "main.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "50mb" }
+      "src": "api/index.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
     {
-      "src": "/aichat",
-      "dest": "main.py"
+      "src": "/api/index",
+      "dest": "api/index.py"
     }
   ]
 }
