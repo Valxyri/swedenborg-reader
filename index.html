@@ -201,13 +201,16 @@
             }
 
             // --- CONVERSATIONAL AI LOGIC ---
-            recognition.onstart = () => { statusMessage.textContent = "Listening..."; micBtn.classList.add('listening'); };
-            recognition.onresult = async (event) => {
-                const userText = event.results[0][0].transcript;
-                renderChatMessage(userText, true);
-                await sendToAI(userText);
-            };
-            recognition.onend = () => { statusMessage.textContent = ""; micBtn.classList.remove('listening'); };
+            if (recognition) {
+                recognition.onstart = () => { statusMessage.textContent = "Listening..."; micBtn.classList.add('listening'); };
+                recognition.onresult = async (event) => {
+                    const userText = event.results[0][0].transcript;
+                    renderChatMessage(userText, true);
+                    await sendToAI(userText);
+                };
+                recognition.onend = () => { statusMessage.textContent = ""; micBtn.classList.remove('listening'); };
+                recognition.onerror = () => { statusMessage.textContent = "Speech recognition error"; micBtn.classList.remove('listening'); };
+            }
 
             async function sendToAI(text) {
                 if (isFetching || !text.trim()) return;
@@ -292,7 +295,11 @@
                 }
             });
             browseLibraryBtn.addEventListener('click', () => showView('library-menu-view'));
-            micBtn.addEventListener('click', () => recognition.start());
+            if (recognition) {
+                micBtn.addEventListener('click', () => recognition.start());
+            } else {
+                micBtn.style.display = 'none'; // Hide mic button if speech recognition not available
+            }
             sendBtn.addEventListener('click', handleUserInput);
             chatInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {

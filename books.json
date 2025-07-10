@@ -5,14 +5,14 @@
       "title": "Heaven and Hell",
       "type": "New Century Edition",
       "language": "English",
-      "file": "nce_heavenhell.json"
+      "file": "nce_heavenandhell_portable.json"
     },
     {
       "id": "divine-love-wisdom",
       "title": "Divine Love and Wisdom",
-      "type": "New Century Edition", 
+      "type": "Standard Edition", 
       "language": "English",
-      "file": "nce_divinelove.json"
+      "file": "swedenborg_foundation_divine_love_and_wisdom.json"
     },
     {
       "id": "true-christian-religion",

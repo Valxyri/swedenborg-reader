@@ -2,18 +2,31 @@ from http.server import BaseHTTPRequestHandler
 import json
 import os
 import base64
-import google.generativeai as genai
-from google.cloud import texttospeech
+
+# Gracefully handle Google AI dependencies
+try:
+    import google.generativeai as genai
+    GOOGLE_AI_AVAILABLE = True
+except ImportError:
+    GOOGLE_AI_AVAILABLE = False
+    genai = None
+
+try:
+    from google.cloud import texttospeech
+    GOOGLE_TTS_AVAILABLE = True
+except ImportError:
+    GOOGLE_TTS_AVAILABLE = False
+    texttospeech = None
 
 # Configure Google AI
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
-if GEMINI_API_KEY:
+if GEMINI_API_KEY and GOOGLE_AI_AVAILABLE:
     genai.configure(api_key=GEMINI_API_KEY)
 
 def get_gemini_response(text, history=None, book_context=None):
     """Get response from Google Gemini AI"""
     try:
-        if not GEMINI_API_KEY:
+        if not GEMINI_API_KEY or not GOOGLE_AI_AVAILABLE:
             return get_fallback_response(text, book_context)
         
         model = genai.GenerativeModel('gemini-pro')
@@ -96,6 +109,9 @@ def get_fallback_response(text, book_context=None):
 def generate_audio(text):
     """Generate audio using Google Text-to-Speech"""
     try:
+        if not GOOGLE_TTS_AVAILABLE:
+            return None
+            
         # Initialize the Text-to-Speech client
         client = texttospeech.TextToSpeechClient()
         
