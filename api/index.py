@@ -200,3 +200,16 @@ class handler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
+if __name__ == "__main__":
+    from http.server import HTTPServer
+    import sys
+    import os
+
+    port = int(os.environ.get("PORT", 10000))
+    server = HTTPServer(("0.0.0.0", port), handler)
+    print(f"Server running on port {port}...")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("Server stopped.")
+        sys.exit(0)
